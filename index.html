@@ -2,11 +2,17 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CHAMPION. — Yard Sale</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>CHAMPION. Yard Sale</title>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
+
+html,body{
+  width:100%;
+  height:100%;
+  overflow:hidden;
+}
 
 body{
   font-family:Arial,Helvetica,sans-serif;
@@ -15,54 +21,66 @@ body{
 }
 
 .poster{
-  min-height:100vh;
+  width:100vw;
+  height:100vh;
+  min-height:500px;
   position:relative;
   overflow:hidden;
-  padding:28px 5%;
+
   background:
-    linear-gradient(rgba(0,90,45,.72),rgba(0,55,28,.82)),
+    linear-gradient(rgba(0,85,40,.72),rgba(0,55,25,.84)),
     url("https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=2000&q=90")
     center/cover;
 }
 
 .top{
+  height:10%;
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
+  padding:0 4%;
 }
 
 .logo{
-  font-size:clamp(30px,5vw,55px);
+  font-size:clamp(22px,3.5vw,50px);
   font-weight:900;
   letter-spacing:-3px;
 }
 
 .tag{
-  background:white;
+  background:#fff;
   color:#08783e;
-  padding:11px 18px;
+  padding:8px 15px;
   border-radius:30px;
-  font-size:13px;
+  font-size:clamp(9px,1vw,14px);
   font-weight:900;
 }
 
 .content{
-  max-width:1200px;
-  margin:auto;
-  padding-top:55px;
+  height:90%;
+  padding:1% 4% 2%;
+  display:grid;
+  grid-template-columns:1.05fr 1fr;
+  grid-template-rows:auto auto 1fr auto;
+  column-gap:3%;
+  align-items:center;
+}
+
+.left{
+  grid-row:1/5;
 }
 
 .eyebrow{
-  font-size:16px;
+  font-size:clamp(10px,1.2vw,18px);
   font-weight:900;
-  letter-spacing:4px;
-  margin-bottom:15px;
+  letter-spacing:3px;
+  margin-bottom:12px;
 }
 
 h1{
-  font-size:clamp(75px,14vw,175px);
-  line-height:.75;
-  letter-spacing:-10px;
+  font-size:clamp(65px,10.5vw,155px);
+  line-height:.72;
+  letter-spacing:-8px;
   font-weight:1000;
 }
 
@@ -72,58 +90,48 @@ h1 span{
 
 .badge{
   display:inline-block;
-  background:white;
+  background:#fff;
   color:#08783e;
-  padding:12px 22px;
-  margin-top:30px;
-  font-size:20px;
+  padding:9px 16px;
+  margin-top:20px;
+  font-size:clamp(13px,1.6vw,23px);
   font-weight:900;
   transform:rotate(-2deg);
 }
 
 .description{
-  max-width:650px;
-  margin-top:25px;
-  font-size:22px;
-  line-height:1.3;
+  max-width:520px;
+  margin-top:18px;
+  font-size:clamp(13px,1.5vw,21px);
+  line-height:1.2;
   font-weight:700;
 }
 
-/* ITEM PHOTOS */
+/* PHOTOS */
 
-.items{
-  margin-top:45px;
-}
-
-.items-title{
-  font-size:14px;
-  letter-spacing:4px;
-  font-weight:900;
-  margin-bottom:18px;
-}
-
-.item-grid{
+.photos{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:14px;
+  gap:8px;
+  align-self:center;
 }
 
 .item{
-  background:white;
+  background:#fff;
   color:#08783e;
   overflow:hidden;
 }
 
 .item img{
-  width:100%;
-  height:220px;
-  object-fit:cover;
   display:block;
+  width:100%;
+  height:clamp(85px,12vh,145px);
+  object-fit:cover;
 }
 
 .item-name{
-  padding:13px 15px;
-  font-size:20px;
+  padding:7px 8px;
+  font-size:clamp(10px,1.1vw,15px);
   font-weight:900;
   text-transform:uppercase;
 }
@@ -131,82 +139,103 @@ h1 span{
 /* INFO */
 
 .info{
-  margin-top:30px;
-  padding-top:20px;
-  border-top:1px solid rgba(255,255,255,.6);
   display:grid;
   grid-template-columns:repeat(3,1fr);
+  border-top:1px solid rgba(255,255,255,.7);
+  padding-top:12px;
+  margin-top:12px;
 }
 
 .info-box{
-  padding-right:20px;
+  padding-right:12px;
 }
 
 .info-box+.info-box{
   border-left:1px solid rgba(255,255,255,.45);
-  padding-left:20px;
+  padding-left:12px;
 }
 
 .info-title{
-  font-size:11px;
-  letter-spacing:3px;
+  font-size:clamp(8px,.8vw,12px);
+  letter-spacing:2px;
   font-weight:900;
-  margin-bottom:7px;
+  margin-bottom:4px;
 }
 
 .info-text{
-  font-size:19px;
+  font-size:clamp(11px,1.2vw,17px);
   font-weight:900;
 }
 
-/* MOBILE */
+/* SMALLER SCREENS */
 
 @media(max-width:700px){
 
-  .poster{
-    padding:20px 5% 35px;
-  }
-
-  .tag{
-    font-size:10px;
-    padding:9px 12px;
+  .top{
+    height:8%;
+    padding:0 4%;
   }
 
   .content{
-    padding-top:45px;
+    height:92%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:stretch;
+    gap:0;
+    padding:0 4% 2%;
+  }
+
+  .left{
+    flex:none;
+  }
+
+  .eyebrow{
+    margin-bottom:8px;
+    font-size:10px;
   }
 
   h1{
-    font-size:clamp(70px,20vw,120px);
-    letter-spacing:-7px;
+    font-size:clamp(55px,17vw,95px);
+    letter-spacing:-6px;
+  }
+
+  .badge{
+    margin-top:14px;
+    font-size:13px;
+    padding:7px 12px;
   }
 
   .description{
-    font-size:18px;
+    font-size:13px;
+    margin-top:12px;
   }
 
-  .item-grid{
-    grid-template-columns:repeat(2,1fr);
+  .photos{
+    margin-top:14px;
+    gap:5px;
   }
 
   .item img{
-    height:160px;
+    height:75px;
   }
 
   .item-name{
-    font-size:15px;
+    font-size:9px;
+    padding:5px;
   }
 
   .info{
-    grid-template-columns:1fr;
-    gap:17px;
+    margin-top:12px;
+    padding-top:9px;
   }
 
-  .info-box+.info-box{
-    border-left:0;
-    border-top:1px solid rgba(255,255,255,.4);
-    padding-left:0;
-    padding-top:17px;
+  .info-text{
+    font-size:10px;
+  }
+
+  .info-title{
+    font-size:7px;
   }
 }
 </style>
@@ -221,67 +250,62 @@ h1 span{
     <div class="tag">LOCAL YARD SALE</div>
   </div>
 
-
   <div class="content">
 
-    <div class="eyebrow">
-      GOOD FINDS · GOOD DEALS
-    </div>
+    <div class="left">
 
-    <h1>
-      YARD
-      <span>SALE.</span>
-    </h1>
-
-    <div class="badge">
-      COME FIND SOMETHING GREAT
-    </div>
-
-    <p class="description">
-      Clothes, household items, shoes,
-      electronics, home decor, and
-      random finds.
-    </p>
-
-
-    <div class="items">
-
-      <div class="items-title">
-        WHAT YOU MAY FIND
+      <div class="eyebrow">
+        GOOD FINDS · GOOD DEALS
       </div>
 
-      <div class="item-grid">
+      <h1>
+        YARD
+        <span>SALE.</span>
+      </h1>
 
-        <div class="item">
-          <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=800&q=85" alt="Clothes">
-          <div class="item-name">Clothes</div>
-        </div>
+      <div class="badge">
+        COME FIND SOMETHING GREAT
+      </div>
 
-        <div class="item">
-          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=85" alt="Shoes">
-          <div class="item-name">Shoes</div>
-        </div>
+      <p class="description">
+        Clothes, shoes, household items,
+        electronics, home decor, accessories
+        and random finds.
+      </p>
 
-        <div class="item">
-          <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=800&q=85" alt="Home Decor">
-          <div class="item-name">Home Decor</div>
-        </div>
+    </div>
 
-        <div class="item">
-          <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=800&q=85" alt="Electronics">
-          <div class="item-name">Electronics</div>
-        </div>
 
-        <div class="item">
-          <img src="https://images.unsplash.com/photo-1600494603989-9650cf6ddd3d?auto=format&fit=crop&w=800&q=85" alt="Household Items">
-          <div class="item-name">Household Items</div>
-        </div>
+    <div class="photos">
 
-        <div class="item">
-          <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=85" alt="Accessories">
-          <div class="item-name">Accessories</div>
-        </div>
+      <div class="item">
+        <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=500&q=80">
+        <div class="item-name">Clothes</div>
+      </div>
 
+      <div class="item">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80">
+        <div class="item-name">Shoes</div>
+      </div>
+
+      <div class="item">
+        <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=500&q=80">
+        <div class="item-name">Home Decor</div>
+      </div>
+
+      <div class="item">
+        <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=500&q=80">
+        <div class="item-name">Electronics</div>
+      </div>
+
+      <div class="item">
+        <img src="https://images.unsplash.com/photo-1600494603989-9650cf6ddd3d?auto=format&fit=crop&w=500&q=80">
+        <div class="item-name">Household</div>
+      </div>
+
+      <div class="item">
+        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=500&q=80">
+        <div class="item-name">Accessories</div>
       </div>
 
     </div>
