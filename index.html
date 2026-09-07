@@ -3,285 +3,210 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>CHAMPION. — Yard Sale</title>
 
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#08783e;
+  color:white;
 }
 
-html, body {
-  width: 100%;
-  min-height: 100%;
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: #08783e;
-  color: white;
-}
-
-.poster {
-  min-height: 100vh;
-  overflow: hidden;
-  position: relative;
-
+.poster{
+  min-height:100vh;
+  position:relative;
+  overflow:hidden;
+  padding:28px 5%;
   background:
-    linear-gradient(
-      135deg,
-      rgba(0,75,35,.82),
-      rgba(0,120,60,.48)
-    ),
+    linear-gradient(rgba(0,90,45,.72),rgba(0,55,28,.82)),
     url("https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=2000&q=90")
-    center / cover;
+    center/cover;
 }
 
-.poster::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,.05),
-    rgba(0,0,0,.35)
-  );
-  pointer-events: none;
+.top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
-/* TOP */
-
-.top {
-  position: relative;
-  z-index: 2;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  padding: 28px 6%;
+.logo{
+  font-size:clamp(30px,5vw,55px);
+  font-weight:900;
+  letter-spacing:-3px;
 }
 
-.logo {
-  font-size: clamp(30px, 5vw, 58px);
-  font-weight: 900;
-  letter-spacing: -3px;
+.tag{
+  background:white;
+  color:#08783e;
+  padding:11px 18px;
+  border-radius:30px;
+  font-size:13px;
+  font-weight:900;
 }
 
-.tag {
-  background: white;
-  color: #08783e;
-
-  padding: 12px 20px;
-  border-radius: 40px;
-
-  font-size: 14px;
-  font-weight: 900;
+.content{
+  max-width:1200px;
+  margin:auto;
+  padding-top:55px;
 }
 
-/* MAIN */
-
-.content {
-  position: relative;
-  z-index: 2;
-
-  padding: 5vh 6% 60px;
+.eyebrow{
+  font-size:16px;
+  font-weight:900;
+  letter-spacing:4px;
+  margin-bottom:15px;
 }
 
-.eyebrow {
-  font-size: clamp(14px, 2vw, 22px);
-  font-weight: 900;
-  letter-spacing: 5px;
-  margin-bottom: 18px;
+h1{
+  font-size:clamp(75px,14vw,175px);
+  line-height:.75;
+  letter-spacing:-10px;
+  font-weight:1000;
 }
 
-h1 {
-  font-size: clamp(80px, 15vw, 190px);
-  line-height: .75;
-  letter-spacing: -10px;
-  font-weight: 1000;
+h1 span{
+  display:block;
 }
 
-h1 span {
-  display: block;
+.badge{
+  display:inline-block;
+  background:white;
+  color:#08783e;
+  padding:12px 22px;
+  margin-top:30px;
+  font-size:20px;
+  font-weight:900;
+  transform:rotate(-2deg);
 }
 
-.badge {
-  display: inline-block;
-
-  margin-top: 32px;
-
-  background: white;
-  color: #08783e;
-
-  padding: 12px 23px;
-
-  font-size: clamp(17px, 2.5vw, 28px);
-  font-weight: 900;
-
-  transform: rotate(-2deg);
+.description{
+  max-width:650px;
+  margin-top:25px;
+  font-size:22px;
+  line-height:1.3;
+  font-weight:700;
 }
 
-.description {
-  max-width: 650px;
+/* ITEM PHOTOS */
 
-  margin-top: 30px;
-
-  font-size: clamp(18px, 2.5vw, 27px);
-  line-height: 1.3;
-  font-weight: 700;
+.items{
+  margin-top:45px;
 }
 
-/* ITEMS */
-
-.items {
-  margin-top: 55px;
-
-  max-width: 1050px;
-
-  border-top: 2px solid rgba(255,255,255,.9);
-
-  padding-top: 24px;
+.items-title{
+  font-size:14px;
+  letter-spacing:4px;
+  font-weight:900;
+  margin-bottom:18px;
 }
 
-.items-title {
-  font-size: 15px;
-  letter-spacing: 4px;
-  font-weight: 900;
-
-  margin-bottom: 18px;
+.item-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
 }
 
-.item-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+.item{
+  background:white;
+  color:#08783e;
+  overflow:hidden;
 }
 
-.item {
-  background: rgba(255,255,255,.96);
-  color: #08783e;
-
-  padding: 12px 18px;
-
-  font-size: clamp(16px, 2vw, 21px);
-  font-weight: 900;
-
-  border-radius: 2px;
+.item img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  display:block;
 }
 
-/* BOTTOM INFO */
-
-.info {
-  margin-top: 35px;
-
-  max-width: 1050px;
-
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-
-  border-top: 1px solid rgba(255,255,255,.55);
-
-  padding-top: 22px;
+.item-name{
+  padding:13px 15px;
+  font-size:20px;
+  font-weight:900;
+  text-transform:uppercase;
 }
 
-.info-box {
-  padding-right: 25px;
+/* INFO */
+
+.info{
+  margin-top:30px;
+  padding-top:20px;
+  border-top:1px solid rgba(255,255,255,.6);
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
 }
 
-.info-box + .info-box {
-  border-left: 1px solid rgba(255,255,255,.45);
-  padding-left: 25px;
+.info-box{
+  padding-right:20px;
 }
 
-.info-title {
-  font-size: 12px;
-  letter-spacing: 3px;
-  font-weight: 900;
-
-  margin-bottom: 8px;
+.info-box+.info-box{
+  border-left:1px solid rgba(255,255,255,.45);
+  padding-left:20px;
 }
 
-.info-text {
-  font-size: clamp(16px, 2vw, 22px);
-  font-weight: 900;
-  line-height: 1.15;
+.info-title{
+  font-size:11px;
+  letter-spacing:3px;
+  font-weight:900;
+  margin-bottom:7px;
+}
+
+.info-text{
+  font-size:19px;
+  font-weight:900;
 }
 
 /* MOBILE */
 
-@media (max-width: 650px) {
+@media(max-width:700px){
 
-  .poster {
-    min-height: 100svh;
+  .poster{
+    padding:20px 5% 35px;
   }
 
-  .top {
-    padding: 20px 5%;
+  .tag{
+    font-size:10px;
+    padding:9px 12px;
   }
 
-  .logo {
-    font-size: 30px;
+  .content{
+    padding-top:45px;
   }
 
-  .tag {
-    font-size: 11px;
-    padding: 9px 13px;
+  h1{
+    font-size:clamp(70px,20vw,120px);
+    letter-spacing:-7px;
   }
 
-  .content {
-    padding: 45px 5% 40px;
+  .description{
+    font-size:18px;
   }
 
-  .eyebrow {
-    font-size: 13px;
-    letter-spacing: 3px;
+  .item-grid{
+    grid-template-columns:repeat(2,1fr);
   }
 
-  h1 {
-    font-size: clamp(72px, 20vw, 125px);
-    letter-spacing: -7px;
+  .item img{
+    height:160px;
   }
 
-  .badge {
-    margin-top: 25px;
-    font-size: 16px;
+  .item-name{
+    font-size:15px;
   }
 
-  .description {
-    font-size: 18px;
-    margin-top: 23px;
+  .info{
+    grid-template-columns:1fr;
+    gap:17px;
   }
 
-  .items {
-    margin-top: 38px;
-  }
-
-  .item-list {
-    gap: 7px;
-  }
-
-  .item {
-    padding: 10px 13px;
-    font-size: 15px;
-  }
-
-  .info {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-
-  .info-box {
-    padding-right: 0;
-  }
-
-  .info-box + .info-box {
-    border-left: 0;
-    border-top: 1px solid rgba(255,255,255,.4);
-    padding-left: 0;
-    padding-top: 18px;
+  .info-box+.info-box{
+    border-left:0;
+    border-top:1px solid rgba(255,255,255,.4);
+    padding-left:0;
+    padding-top:17px;
   }
 }
 </style>
@@ -292,15 +217,8 @@ h1 span {
 <main class="poster">
 
   <div class="top">
-
-    <div class="logo">
-      CHAMPION.
-    </div>
-
-    <div class="tag">
-      LOCAL YARD SALE
-    </div>
-
+    <div class="logo">CHAMPION.</div>
+    <div class="tag">LOCAL YARD SALE</div>
   </div>
 
 
@@ -310,69 +228,58 @@ h1 span {
       GOOD FINDS · GOOD DEALS
     </div>
 
-
     <h1>
       YARD
       <span>SALE.</span>
     </h1>
 
-
     <div class="badge">
       COME FIND SOMETHING GREAT
     </div>
 
-
     <p class="description">
-      Clothes, household items, random finds,
-      shoes, accessories, and more.
-      New things can show up every sale.
+      Clothes, household items, shoes,
+      electronics, home decor, and
+      random finds.
     </p>
 
-
-    <!-- ITEMS -->
 
     <div class="items">
 
       <div class="items-title">
-        ITEMS YOU MAY FIND
+        WHAT YOU MAY FIND
       </div>
 
-      <div class="item-list">
+      <div class="item-grid">
 
         <div class="item">
-          Clothes
+          <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=800&q=85" alt="Clothes">
+          <div class="item-name">Clothes</div>
         </div>
 
         <div class="item">
-          Shoes
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=85" alt="Shoes">
+          <div class="item-name">Shoes</div>
         </div>
 
         <div class="item">
-          Household Items
+          <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=800&q=85" alt="Home Decor">
+          <div class="item-name">Home Decor</div>
         </div>
 
         <div class="item">
-          Home Decor
+          <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=800&q=85" alt="Electronics">
+          <div class="item-name">Electronics</div>
         </div>
 
         <div class="item">
-          Electronics
+          <img src="https://images.unsplash.com/photo-1600494603989-9650cf6ddd3d?auto=format&fit=crop&w=800&q=85" alt="Household Items">
+          <div class="item-name">Household Items</div>
         </div>
 
         <div class="item">
-          Accessories
-        </div>
-
-        <div class="item">
-          Toys
-        </div>
-
-        <div class="item">
-          Random Items
-        </div>
-
-        <div class="item">
-          And More
+          <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=85" alt="Accessories">
+          <div class="item-name">Accessories</div>
         </div>
 
       </div>
@@ -380,46 +287,21 @@ h1 span {
     </div>
 
 
-    <!-- SALE INFORMATION -->
-
     <div class="info">
 
       <div class="info-box">
-
-        <div class="info-title">
-          NEXT SALE
-        </div>
-
-        <div class="info-text">
-          SATURDAY & SUNDAY
-        </div>
-
+        <div class="info-title">NEXT SALE</div>
+        <div class="info-text">SATURDAY & SUNDAY</div>
       </div>
 
-
       <div class="info-box">
-
-        <div class="info-title">
-          HOURS
-        </div>
-
-        <div class="info-text">
-          9 AM — 2 PM
-        </div>
-
+        <div class="info-title">HOURS</div>
+        <div class="info-text">9 AM — 2 PM</div>
       </div>
 
-
       <div class="info-box">
-
-        <div class="info-title">
-          LOCATION
-        </div>
-
-        <div class="info-text">
-          128 NEWBURY ST
-        </div>
-
+        <div class="info-title">LOCATION</div>
+        <div class="info-text">128 NEWBURY ST</div>
       </div>
 
     </div>
