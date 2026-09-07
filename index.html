@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>CHAMPION. — Yard Sale</title>
 
 <style>
@@ -18,301 +19,343 @@ html {
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  color: #111;
-  background: #fff;
+  background: #f4f0e7;
+  color: #101010;
 }
 
 a {
-  color: inherit;
   text-decoration: none;
+  color: inherit;
 }
 
 /* HEADER */
 
 header {
-  height: 105px;
+  height: 90px;
+  background: #f4f0e7;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 5.5%;
-  background: #f4f5f5;
+  padding: 0 6%;
+  border-bottom: 2px solid #101010;
 }
 
 .logo {
-  font-size: 43px;
-  font-weight: 800;
+  font-size: 34px;
+  font-weight: 900;
   letter-spacing: -2px;
 }
 
-nav a {
-  font-size: 18px;
-  font-weight: 600;
-  margin-left: 35px;
+.menu {
+  font-size: 16px;
+  font-weight: 800;
 }
 
 /* HERO */
 
 .hero {
   min-height: 850px;
+  position: relative;
+  overflow: hidden;
   background:
     linear-gradient(
-      to bottom,
-      rgba(255,255,255,.55),
-      rgba(255,255,255,.72)
+      90deg,
+      rgba(244,240,231,.96) 0%,
+      rgba(244,240,231,.82) 35%,
+      rgba(244,240,231,.12) 75%
     ),
-    url("https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=1800&q=90")
-    center/cover;
-  padding: 150px 5.5% 100px;
-  display: flex;
-  align-items: flex-end;
-}
-
-.hero-content {
-  max-width: 850px;
-}
-
-.kicker {
-  font-size: 17px;
-  letter-spacing: 4px;
-  margin-bottom: 25px;
-  font-weight: 500;
-}
-
-.hero h1 {
-  font-size: clamp(75px, 13vw, 190px);
-  line-height: .82;
-  letter-spacing: -9px;
-  font-weight: 900;
-  margin-bottom: 45px;
-}
-
-.hero p {
-  max-width: 700px;
-  font-size: 25px;
-  line-height: 1.35;
-  margin-bottom: 40px;
-}
-
-.button {
-  display: inline-block;
-  border: 1.5px solid #111;
-  border-radius: 50px;
-  padding: 19px 30px;
-  font-size: 18px;
-  font-weight: 700;
-  transition: .25s;
-}
-
-.button:hover {
-  background: #111;
-  color: #fff;
-}
-
-/* NEXT SALE */
-
-.next-sale {
-  padding: 110px 7%;
-  text-align: center;
-  background: #eaf7fb;
-}
-
-.next-sale small {
-  font-size: 15px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-}
-
-.next-sale h2 {
-  font-size: clamp(50px, 8vw, 110px);
-  letter-spacing: -5px;
-  line-height: .9;
-  margin: 25px 0;
-}
-
-.sale-date {
-  font-size: 27px;
-  margin-bottom: 12px;
-}
-
-.sale-time {
-  font-size: 20px;
-}
-
-/* PHOTO */
-
-.feature-photo {
-  height: 650px;
-  background:
     url("https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1800&q=90")
     center/cover;
 }
 
-/* INTRO */
-
-.intro {
-  padding: 120px 7%;
-  text-align: center;
+.hero-content {
+  padding: 120px 6%;
+  max-width: 850px;
 }
 
-.intro h2 {
-  max-width: 900px;
-  margin: auto;
-  font-size: clamp(48px, 7vw, 100px);
-  line-height: .95;
-  letter-spacing: -4px;
+.small-title {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  margin-bottom: 25px;
 }
 
-.intro p {
-  max-width: 700px;
-  margin: 45px auto 0;
+.hero h1 {
+  font-size: clamp(75px, 14vw, 180px);
+  line-height: .78;
+  font-weight: 1000;
+  letter-spacing: -10px;
+}
+
+.hero h1 span {
+  display: block;
+}
+
+.green {
+  color: #08783e;
+}
+
+.hero-description {
+  max-width: 550px;
+  margin-top: 45px;
   font-size: 24px;
-  line-height: 1.5;
+  line-height: 1.3;
+  font-weight: 500;
 }
 
-/* FINDS */
-
-.finds {
-  background: #292929;
+.hero-button {
+  display: inline-block;
+  margin-top: 35px;
+  background: #08783e;
   color: white;
-  padding: 110px 6%;
+  padding: 19px 30px;
+  border-radius: 4px;
+  font-weight: 900;
+  font-size: 17px;
 }
 
-.finds-title {
-  font-size: clamp(55px, 9vw, 125px);
-  line-height: .9;
-  letter-spacing: -5px;
-  margin-bottom: 80px;
+/* SALE STRIP */
+
+.sale-strip {
+  background: #08783e;
+  color: white;
+  padding: 25px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
 }
 
-.find {
+.sale-strip strong {
+  font-size: 25px;
+}
+
+.sale-strip span {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* POSTER SECTION */
+
+.poster {
+  padding: 90px 6%;
+  background: #f4f0e7;
+}
+
+.poster-grid {
   display: grid;
-  grid-template-columns: 1.15fr .85fr;
-  min-height: 600px;
-  border-top: 1px solid rgba(255,255,255,.45);
-  padding: 35px 0;
-  gap: 70px;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 25px;
 }
 
-.find:last-child {
-  border-bottom: 1px solid rgba(255,255,255,.45);
+.poster-main {
+  min-height: 650px;
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,.05),
+      rgba(0,0,0,.65)
+    ),
+    url("https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=1500&q=90")
+    center/cover;
+  color: white;
+  padding: 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
-.find-image {
-  height: 550px;
+.poster-main h2 {
+  font-size: clamp(65px, 8vw, 120px);
+  line-height: .8;
+  letter-spacing: -7px;
+}
+
+.poster-main p {
+  margin-top: 25px;
+  font-size: 21px;
+  max-width: 500px;
+}
+
+.poster-side {
+  background: #08783e;
+  color: white;
+  padding: 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.poster-side .label {
+  font-size: 15px;
+  letter-spacing: 4px;
+  font-weight: 800;
+}
+
+.poster-side h2 {
+  font-size: clamp(55px, 7vw, 95px);
+  line-height: .85;
+  letter-spacing: -5px;
+}
+
+.poster-side .date {
+  font-size: 24px;
+  font-weight: 800;
+  border-top: 2px solid white;
+  padding-top: 25px;
+}
+
+/* ITEMS */
+
+.items {
+  background: #101010;
+  color: white;
+  padding: 100px 6%;
+}
+
+.section-label {
+  color: #72d79c;
+  font-size: 16px;
+  letter-spacing: 4px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.items h2 {
+  font-size: clamp(65px, 10vw, 140px);
+  line-height: .8;
+  letter-spacing: -8px;
+  margin-bottom: 70px;
+}
+
+.item-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.item {
+  background: #f4f0e7;
+  color: #101010;
+}
+
+.item-image {
+  height: 400px;
   overflow: hidden;
 }
 
-.find-image img {
+.item-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform .6s ease;
 }
 
-.find:hover img {
-  transform: scale(1.04);
+.item-text {
+  padding: 25px;
 }
 
-.find-info {
-  align-self: center;
+.item-text h3 {
+  font-size: 37px;
+  letter-spacing: -2px;
 }
 
-.find-info h3 {
-  font-size: clamp(45px, 6vw, 85px);
-  letter-spacing: -4px;
-  line-height: .95;
-  margin-bottom: 25px;
+.item-text p {
+  margin-top: 10px;
+  font-size: 17px;
+  line-height: 1.4;
 }
 
-.find-info p {
-  font-size: 22px;
-  line-height: 1.45;
-  max-width: 450px;
+/* BIG MESSAGE */
+
+.message {
+  padding: 110px 6%;
+  background: #08783e;
+  color: white;
+}
+
+.message h2 {
+  font-size: clamp(65px, 11vw, 155px);
+  line-height: .78;
+  letter-spacing: -9px;
+  max-width: 1100px;
+}
+
+.message p {
+  font-size: 25px;
+  line-height: 1.35;
+  max-width: 650px;
+  margin-top: 45px;
 }
 
 /* REVIEW */
 
 .review {
-  min-height: 700px;
-  padding: 100px 7%;
-  display: flex;
-  align-items: center;
+  padding: 110px 6%;
   background:
-    linear-gradient(rgba(220,240,245,.9),rgba(220,240,245,.9)),
-    url("https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1800&q=90")
+    linear-gradient(
+      rgba(244,240,231,.9),
+      rgba(244,240,231,.9)
+    ),
+    url("https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1800&q=90")
     center/cover;
+}
+
+.review-mark {
+  font-size: 90px;
+  font-weight: 900;
+  line-height: .5;
 }
 
 .review blockquote {
   max-width: 1050px;
-  font-size: clamp(38px, 6vw, 78px);
-  line-height: 1.05;
-  letter-spacing: -3px;
+  margin-top: 35px;
+  font-size: clamp(38px, 6vw, 75px);
+  line-height: 1;
+  letter-spacing: -4px;
+  font-weight: 800;
 }
 
 .review cite {
   display: block;
-  font-size: 20px;
-  margin-top: 45px;
-  letter-spacing: 1px;
-}
-
-/* INSTAGRAM */
-
-.social {
-  padding: 120px 7%;
-  text-align: center;
-}
-
-.social h2 {
-  font-size: clamp(50px, 7vw, 90px);
-  letter-spacing: -4px;
-  line-height: .95;
-}
-
-.social p {
-  font-size: 25px;
-  margin: 35px auto 50px;
-  max-width: 700px;
-  line-height: 1.4;
-}
-
-.social-link {
-  text-decoration: underline;
-  font-size: 25px;
+  margin-top: 35px;
+  font-size: 18px;
+  font-weight: 800;
 }
 
 /* FAQ */
 
 .faq {
-  background: #292929;
+  background: #101010;
   color: white;
-  padding: 100px 8%;
+  padding: 100px 6%;
 }
 
 .faq h2 {
-  font-size: clamp(60px, 9vw, 120px);
-  letter-spacing: -5px;
+  font-size: clamp(65px, 10vw, 135px);
+  line-height: .8;
+  letter-spacing: -8px;
   margin-bottom: 70px;
 }
 
 details {
-  border-top: 1px solid rgba(255,255,255,.5);
+  border-top: 1px solid #666;
   padding: 30px 0;
 }
 
 details:last-child {
-  border-bottom: 1px solid rgba(255,255,255,.5);
+  border-bottom: 1px solid #666;
 }
 
 summary {
   cursor: pointer;
   list-style: none;
-  font-size: clamp(28px, 4vw, 48px);
+  font-size: clamp(27px, 4vw, 45px);
+  font-weight: 700;
   display: flex;
   justify-content: space-between;
-  gap: 20px;
 }
 
 summary::after {
@@ -324,137 +367,163 @@ details[open] summary::after {
 }
 
 .answer {
-  max-width: 800px;
-  font-size: 21px;
+  max-width: 750px;
+  color: #ccc;
+  font-size: 19px;
   line-height: 1.6;
   padding-top: 25px;
-  color: #ddd;
 }
 
 /* LOCATION */
 
 .location {
-  background: #eaf7fb;
+  background: #f4f0e7;
+  padding: 120px 6%;
   text-align: center;
-  padding: 120px 7%;
+}
+
+.location .label {
+  font-size: 17px;
+  letter-spacing: 4px;
+  font-weight: 800;
 }
 
 .location h2 {
-  font-size: clamp(65px, 10vw, 140px);
-  letter-spacing: -7px;
-  line-height: .85;
-  margin-bottom: 50px;
+  font-size: clamp(70px, 11vw, 155px);
+  line-height: .75;
+  letter-spacing: -9px;
+  margin: 30px 0 50px;
 }
 
 .address {
-  font-size: 27px;
-  margin-bottom: 55px;
+  font-size: clamp(25px, 4vw, 40px);
+  font-weight: 800;
 }
 
 .hours {
-  font-size: 23px;
-  line-height: 2;
-}
-
-.hours strong {
-  text-decoration: underline;
+  margin-top: 35px;
+  font-size: 21px;
+  line-height: 1.7;
 }
 
 /* CONTACT */
 
 .contact {
-  padding: 120px 7%;
+  padding: 100px 6%;
+  background: #08783e;
+  color: white;
   text-align: center;
 }
 
 .contact h2 {
-  font-size: clamp(55px, 8vw, 110px);
-  letter-spacing: -5px;
-  margin-bottom: 30px;
+  font-size: clamp(65px, 10vw, 135px);
+  letter-spacing: -8px;
+  line-height: .8;
 }
 
 .contact p {
-  font-size: 23px;
-  margin-bottom: 45px;
+  margin: 35px auto;
+  max-width: 600px;
+  font-size: 21px;
+}
+
+.contact-button {
+  display: inline-block;
+  background: white;
+  color: #101010;
+  padding: 19px 30px;
+  font-weight: 900;
+  border-radius: 4px;
 }
 
 /* FOOTER */
 
 footer {
-  background: #111;
+  background: #101010;
   color: white;
-  padding: 55px 7%;
+  padding: 35px 6%;
   display: flex;
   justify-content: space-between;
-  gap: 30px;
-  font-size: 15px;
+  font-size: 14px;
+  font-weight: 700;
 }
 
 /* MOBILE */
 
-@media (max-width: 700px) {
+@media(max-width: 700px) {
 
   header {
-    height: 90px;
-    padding: 0 6%;
+    height: 75px;
   }
 
   .logo {
-    font-size: 34px;
-  }
-
-  nav a {
-    font-size: 15px;
-    margin-left: 15px;
+    font-size: 29px;
   }
 
   .hero {
-    min-height: 720px;
-    padding: 90px 6% 70px;
+    min-height: 760px;
+  }
+
+  .hero-content {
+    padding: 100px 6% 60px;
   }
 
   .hero h1 {
-    letter-spacing: -5px;
+    letter-spacing: -6px;
   }
 
-  .hero p {
+  .hero-description {
     font-size: 20px;
   }
 
-  .feature-photo {
-    height: 450px;
+  .sale-strip {
+    display: block;
   }
 
-  .finds {
-    padding: 75px 6%;
+  .sale-strip span {
+    display: block;
+    margin-top: 8px;
   }
 
-  .find {
+  .poster {
+    padding: 55px 5%;
+  }
+
+  .poster-grid {
     grid-template-columns: 1fr;
-    gap: 30px;
-    min-height: auto;
-    padding: 30px 0 60px;
   }
 
-  .find-image {
-    height: 420px;
+  .poster-main {
+    min-height: 550px;
+    padding: 30px;
   }
 
-  .find-info h3 {
-    letter-spacing: -2px;
+  .poster-side {
+    min-height: 450px;
   }
 
-  .review {
-    min-height: 600px;
+  .item-grid {
+    grid-template-columns: 1fr;
   }
 
-  .review blockquote {
-    letter-spacing: -1.5px;
+  .item-image {
+    height: 430px;
+  }
+
+  .items h2,
+  .faq h2,
+  .location h2,
+  .contact h2 {
+    letter-spacing: -5px;
   }
 
   footer {
-    flex-direction: column;
+    display: block;
     text-align: center;
+  }
+
+  footer div + div {
+    margin-top: 10px;
   }
 }
 </style>
@@ -465,10 +534,9 @@ footer {
 <header>
   <div class="logo">CHAMPION.</div>
 
-  <nav>
+  <div class="menu">
     <a href="#faq">FAQ</a>
-    <a href="#contact">CONTACT</a>
-  </nav>
+  </div>
 </header>
 
 
@@ -476,19 +544,23 @@ footer {
 
   <div class="hero-content">
 
-    <div class="kicker">
-      LOCAL YARD SALE · GOOD FINDS · GOOD DEALS
+    <div class="small-title">
+      LOCAL YARD SALE · FAMILY OWNED
     </div>
 
-    <h1>GOOD<br>DEALS.</h1>
+    <h1>
+      GOOD
+      <span class="green">DEALS.</span>
+    </h1>
 
-    <p>
-      Clothes, random finds, and unexpected treasures.
-      Come take a look and see what you discover.
+    <p class="hero-description">
+      Clothes, random finds, household items,
+      and unexpected treasures — all waiting
+      to be discovered.
     </p>
 
-    <a class="button" href="#next-sale">
-      NEXT SALE →
+    <a class="hero-button" href="#next">
+      SEE NEXT SALE →
     </a>
 
   </div>
@@ -496,175 +568,169 @@ footer {
 </section>
 
 
-<section class="next-sale" id="next-sale">
+<section class="sale-strip" id="next">
 
-  <small>Next Yard Sale</small>
+  <strong>NEXT YARD SALE</strong>
 
-  <h2>COMING SOON.</h2>
+  <span>
+    SATURDAY & SUNDAY · 9:00 AM — 2:00 PM
+  </span>
 
-  <!-- CHANGE THIS DATE ANYTIME -->
-  <div class="sale-date">
-    Saturday & Sunday
-  </div>
+</section>
 
-  <!-- CHANGE THIS TIME ANYTIME -->
-  <div class="sale-time">
-    9:00 AM — 2:00 PM
+
+<section class="poster">
+
+  <div class="poster-grid">
+
+    <div class="poster-main">
+
+      <h2>
+        FIND<br>
+        SOMETHING<br>
+        GREAT.
+      </h2>
+
+      <p>
+        Our inventory changes from sale to sale,
+        so there's always something new to look through.
+      </p>
+
+    </div>
+
+
+    <div class="poster-side">
+
+      <div class="label">
+        COMING SOON
+      </div>
+
+      <h2>
+        THE<br>
+        YARD<br>
+        SALE
+      </h2>
+
+      <div class="date">
+        SATURDAY<br>
+        + SUNDAY<br><br>
+        9 AM — 2 PM
+      </div>
+
+    </div>
+
   </div>
 
 </section>
 
 
-<div class="feature-photo"></div>
+<section class="items">
 
-
-<section class="intro">
+  <div class="section-label">
+    WHAT YOU'LL FIND
+  </div>
 
   <h2>
-    GOOD FINDS.<br>
-    GOOD DEALS.
+    GOOD<br>
+    FINDS.
+  </h2>
+
+
+  <div class="item-grid">
+
+    <div class="item">
+
+      <div class="item-image">
+        <img
+          src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=1000&q=90"
+          alt="Clothing"
+        >
+      </div>
+
+      <div class="item-text">
+        <h3>CLOTHES.</h3>
+        <p>
+          Shirts, pants, jackets, shoes,
+          and more.
+        </p>
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="item-image">
+        <img
+          src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1000&q=90"
+          alt="Home items"
+        >
+      </div>
+
+      <div class="item-text">
+        <h3>HOME.</h3>
+        <p>
+          Household items, décor,
+          and useful finds.
+        </p>
+      </div>
+
+    </div>
+
+
+    <div class="item">
+
+      <div class="item-image">
+        <img
+          src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1000&q=90"
+          alt="Shoes"
+        >
+      </div>
+
+      <div class="item-text">
+        <h3>RANDOM.</h3>
+        <p>
+          You never know what you'll
+          discover at the next sale.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="message">
+
+  <h2>
+    COME<br>
+    LOOK<br>
+    AROUND.
   </h2>
 
   <p>
-    A local family yard sale with a little bit of everything.
-    Browse clothing, household items, random finds, and
-    things you didn't know you needed.
+    Stop by, take a look, and see what you
+    can find. New items can appear every sale.
   </p>
-
-</section>
-
-
-<section class="finds">
-
-  <div class="finds-title">
-    WHAT'S<br>
-    IN THE YARD?
-  </div>
-
-
-  <div class="find">
-
-    <div class="find-image">
-      <img
-        src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=1400&q=90"
-        alt="Clothing"
-      >
-    </div>
-
-    <div class="find-info">
-      <h3>Clothing</h3>
-
-      <p>
-        Shirts, pants, jackets, shoes, and other
-        clothing finds at yard-sale prices.
-      </p>
-    </div>
-
-  </div>
-
-
-  <div class="find">
-
-    <div class="find-image">
-      <img
-        src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1400&q=90"
-        alt="Home items"
-      >
-    </div>
-
-    <div class="find-info">
-      <h3>Home Items</h3>
-
-      <p>
-        Household items, décor, useful stuff,
-        and things that deserve a second home.
-      </p>
-    </div>
-
-  </div>
-
-
-  <div class="find">
-
-    <div class="find-image">
-      <img
-        src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1400&q=90"
-        alt="Shoes"
-      >
-    </div>
-
-    <div class="find-info">
-      <h3>Shoes</h3>
-
-      <p>
-        Shoes and accessories mixed in with
-        the rest of our constantly changing finds.
-      </p>
-    </div>
-
-  </div>
-
-
-  <div class="find">
-
-    <div class="find-image">
-      <img
-        src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1400&q=90"
-        alt="Fashion finds"
-      >
-    </div>
-
-    <div class="find-info">
-      <h3>Random Finds</h3>
-
-      <p>
-        You never know what you'll find.
-        Come by and see what's available.
-      </p>
-    </div>
-
-  </div>
 
 </section>
 
 
 <section class="review">
 
-  <div>
+  <div class="review-mark">“</div>
 
-    <blockquote>
-      “I've been a couple of times and always
-      found something great. It's one of those
-      places you actually look forward to coming
-      back to.”
-    </blockquote>
+  <blockquote>
+    Always something great to find.
+    Good prices, good people, and
+    a different selection every time.
+  </blockquote>
 
-    <cite>— LOCAL SHOPPER</cite>
-
-  </div>
-
-</section>
-
-
-<section class="social">
-
-  <h2>
-    SEE WHAT'S<br>
-    NEW
-  </h2>
-
-  <p>
-    Follow along for the latest arrivals,
-    upcoming sale dates, and new finds.
-  </p>
-
-  <a
-    class="social-link"
-    href="https://mobile.facebook.com/profile.php?id=100008188600220"
-    target="_blank"
-  >
-    Follow us on Facebook →
-  </a>
+  <cite>
+    — LOCAL SHOPPER
+  </cite>
 
 </section>
 
@@ -681,9 +747,10 @@ footer {
     </summary>
 
     <div class="answer">
-      We sell a mix of clothing, household items,
-      shoes, random finds, seasonal items, and
-      other things that change from sale to sale.
+      We sell clothes, household items,
+      shoes, random finds, seasonal items,
+      and other things that change from
+      sale to sale.
     </div>
 
   </details>
@@ -696,7 +763,7 @@ footer {
     </summary>
 
     <div class="answer">
-      Currently, our items are available during
+      Items are currently available during
       our scheduled yard sales.
     </div>
 
@@ -711,8 +778,7 @@ footer {
 
     <div class="answer">
       Delivery is not currently offered.
-      Please visit the sale in person to check
-      out the available items.
+      Please visit the yard sale in person.
     </div>
 
   </details>
@@ -721,13 +787,13 @@ footer {
   <details>
 
     <summary>
-      How can I check what's in stock?
+      How do I know what's available?
     </summary>
 
     <div class="answer">
-      Inventory changes frequently. Check the
-      website and Facebook page for updates
-      before the next sale.
+      Inventory changes frequently, so check
+      the website or Facebook page before
+      coming to the next sale.
     </div>
 
   </details>
@@ -736,27 +802,13 @@ footer {
   <details>
 
     <summary>
-      Are items tested or cleaned?
+      Are items cleaned before sale?
     </summary>
 
     <div class="answer">
-      Items are looked over before being placed
-      out for sale. Condition can vary, so please
-      inspect items before purchasing.
-    </div>
-
-  </details>
-
-
-  <details>
-
-    <summary>
-      Do you accept donations or trades?
-    </summary>
-
-    <div class="answer">
-      Please contact us before bringing items
-      for donation or trade.
+      Items are looked over before being
+      placed out for sale. Condition varies,
+      so please inspect items before buying.
     </div>
 
   </details>
@@ -766,9 +818,13 @@ footer {
 
 <section class="location">
 
+  <div class="label">
+    COME FIND US
+  </div>
+
   <h2>
-    THE YARD<br>
-    SALE
+    THE<br>
+    YARD.
   </h2>
 
   <div class="address">
@@ -776,28 +832,28 @@ footer {
   </div>
 
   <div class="hours">
-
-    <strong>Next Sale:</strong><br>
-
-    Saturday — Sunday<br>
-
+    NEXT SALE<br>
+    SATURDAY & SUNDAY<br>
     9:00 AM — 2:00 PM
-
   </div>
 
 </section>
 
 
-<section class="contact" id="contact">
+<section class="contact">
 
-  <h2>CONTACT.</h2>
+  <h2>
+    GOT<br>
+    QUESTIONS?
+  </h2>
 
   <p>
-    Have a question about the next sale?
+    Message us for information about the
+    next yard sale or what's available.
   </p>
 
   <a
-    class="button"
+    class="contact-button"
     href="https://mobile.facebook.com/profile.php?id=100008188600220"
     target="_blank"
   >
@@ -812,7 +868,7 @@ footer {
   <div>CHAMPION.</div>
 
   <div>
-    Local Yard Sale · Good Finds · Good Deals
+    LOCAL YARD SALE · GOOD FINDS · GOOD DEALS
   </div>
 
 </footer>
