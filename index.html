@@ -1,392 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>CHAMPION. Yard Sale</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mr. DoneRite's Yard Sale</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial Black', Arial, sans-serif;
+    }
 
-<style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+    body {
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
 
-html,body{
-  width:100%;
-  height:100%;
-  overflow:hidden;
-}
+    .poster {
+      background: linear-gradient(180deg, #e8f0fe 0%, #ffffff 100%);
+      width: 100%;
+      max-width: 450px;
+      border: 8px solid #1a2a6c;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      overflow: hidden;
+      text-align: center;
+      position: relative;
+    }
 
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#176b3a;
-}
+    .header {
+      background-color: #1b365d;
+      color: #ffffff;
+      padding: 15px 10px;
+    }
 
-.poster{
-  width:100vw;
-  height:100vh;
-  overflow:hidden;
-  position:relative;
-  background:
-    linear-gradient(rgba(255,244,210,.18),rgba(0,70,30,.15)),
-    url("https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=1800&q=85")
-    center/cover;
-}
+    .header h2 {
+      font-size: 1.2rem;
+      color: #f39c12;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
 
-/* OLD POSTER TEXTURE */
+    .header h1 {
+      font-size: 2.8rem;
+      color: #e74c3c;
+      text-shadow: 2px 2px 0px #ffffff, 4px 4px 0px #000;
+      margin-top: -5px;
+      text-transform: uppercase;
+    }
 
-.poster:after{
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  background:rgba(255,255,255,.08);
-}
+    .main-board {
+      background-color: #fff8eb;
+      border: 4px solid #8e44ad;
+      margin: 15px;
+      padding: 15px;
+      border-radius: 8px;
+    }
 
-/* TOP */
+    .join-us {
+      color: #27ae60;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+    }
 
-.header{
-  position:relative;
-  z-index:2;
-  height:12%;
-  background:#f7edcf;
-  border-bottom:7px solid #173b91;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-}
+    .date {
+      color: #c0392b;
+      font-size: 2rem;
+      margin: 5px 0;
+    }
 
-.logo{
-  color:#173b91;
-  font-size:clamp(25px,5vw,65px);
-  font-weight:1000;
-  letter-spacing:2px;
-  text-transform:uppercase;
-}
+    .time-badge {
+      background-color: #2980b9;
+      color: #ffffff;
+      padding: 6px 12px;
+      border-radius: 20px;
+      display: inline-block;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
 
-/* MAIN POSTER */
+    .location {
+      color: #333333;
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+      font-family: Arial, sans-serif;
+    }
 
-.main{
-  position:relative;
-  z-index:2;
-  height:88%;
-  padding:2vh 4vw;
-  display:grid;
-  grid-template-columns:1.05fr .95fr;
-  gap:2vw;
-  background:
-    linear-gradient(135deg,#f8edcf 0%,#fff7dc 55%,#e9dfb8 100%);
-}
+    .items-list {
+      list-style: none;
+      text-align: left;
+      max-width: 260px;
+      margin: 0 auto;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      color: #2c3e50;
+    }
 
-/* LEFT */
+    .items-list li {
+      padding: 4px 0;
+      border-bottom: 1px dashed #cccccc;
+    }
 
-.left{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  min-width:0;
-}
+    .items-list li::before {
+      content: "✔ ";
+      color: #27ae60;
+    }
 
-.small{
-  color:#d72b24;
-  font-weight:1000;
-  font-size:clamp(11px,1.5vw,20px);
-  letter-spacing:3px;
-  text-transform:uppercase;
-}
+    .side-banner {
+      background-color: #f1c40f;
+      color: #d35400;
+      padding: 10px;
+      margin: 10px 15px;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+    }
 
-h1{
-  color:#183c93;
-  font-size:clamp(65px,10vw,155px);
-  line-height:.78;
-  font-weight:1000;
-  text-transform:uppercase;
-  letter-spacing:-7px;
-  text-shadow:5px 5px 0 #d92723;
-  margin:1vh 0 2vh;
-}
-
-.sale{
-  color:#d92723;
-}
-
-.sub{
-  background:#183c93;
-  color:white;
-  display:inline-block;
-  width:max-content;
-  padding:8px 16px;
-  font-size:clamp(12px,1.5vw,21px);
-  font-weight:1000;
-  text-transform:uppercase;
-  transform:rotate(-2deg);
-}
-
-.description{
-  color:#222;
-  font-weight:700;
-  font-size:clamp(13px,1.5vw,22px);
-  max-width:600px;
-  line-height:1.25;
-  margin-top:2vh;
-}
-
-/* RIGHT */
-
-.right{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  position:relative;
-}
-
-.character{
-  width:58%;
-  max-height:65%;
-  object-fit:cover;
-  border:8px solid #183c93;
-  border-radius:35px;
-  box-shadow:10px 10px 0 #d92723;
-}
-
-/* INFO CARD */
-
-.info{
-  position:absolute;
-  bottom:3%;
-  left:4%;
-  width:92%;
-  background:#fff4d2;
-  border:6px solid #183c93;
-  padding:12px;
-  text-align:center;
-  box-shadow:7px 7px 0 #d92723;
-}
-
-.date{
-  color:#d92723;
-  font-size:clamp(19px,2.7vw,40px);
-  font-weight:1000;
-  text-transform:uppercase;
-}
-
-.time{
-  color:#183c93;
-  font-size:clamp(15px,2vw,28px);
-  font-weight:1000;
-  margin-top:3px;
-}
-
-.address{
-  color:#111;
-  font-size:clamp(12px,1.4vw,20px);
-  font-weight:900;
-  margin-top:5px;
-}
-
-/* ITEM STRIP */
-
-.items{
-  position:absolute;
-  z-index:5;
-  bottom:2%;
-  right:4%;
-  width:44%;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:7px;
-}
-
-.item{
-  background:white;
-  border:4px solid #183c93;
-  transform:rotate(var(--r));
-}
-
-.item img{
-  display:block;
-  width:100%;
-  height:clamp(55px,8vh,100px);
-  object-fit:cover;
-}
-
-.item span{
-  display:block;
-  color:#183c93;
-  font-size:clamp(8px,1vw,13px);
-  font-weight:1000;
-  text-align:center;
-  padding:4px;
-  text-transform:uppercase;
-}
-
-/* MOBILE */
-
-@media(max-width:700px){
-
-  .header{
-    height:9%;
-    border-bottom:4px solid #173b91;
-  }
-
-  .main{
-    height:91%;
-    display:block;
-    padding:2vh 5vw;
-  }
-
-  .left{
-    height:56%;
-    justify-content:center;
-  }
-
-  h1{
-    font-size:clamp(58px,18vw,100px);
-    letter-spacing:-5px;
-    margin:1vh 0;
-  }
-
-  .description{
-    font-size:13px;
-    max-width:95%;
-    margin-top:10px;
-  }
-
-  .right{
-    height:44%;
-  }
-
-  .character{
-    width:48%;
-    max-height:75%;
-    border-width:5px;
-    border-radius:22px;
-    box-shadow:6px 6px 0 #d92723;
-  }
-
-  .info{
-    left:0;
-    bottom:0;
-    width:52%;
-    padding:7px;
-    border-width:4px;
-    box-shadow:4px 4px 0 #d92723;
-  }
-
-  .items{
-    right:0;
-    bottom:0;
-    width:44%;
-    gap:4px;
-  }
-
-  .item{
-    border-width:2px;
-  }
-
-  .item img{
-    height:52px;
-  }
-
-  .item span{
-    font-size:7px;
-    padding:2px;
-  }
-}
-</style>
+    .footer {
+      background-color: #1b365d;
+      color: #ffffff;
+      padding: 12px;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="poster">
-
-  <header class="header">
-    <div class="logo">CHAMPION.</div>
-  </header>
-
-  <main class="main">
-
-    <div class="left">
-
-      <div class="small">
-        Good Finds • Good Deals
-      </div>
-
-      <h1>
-        YARD<br>
-        <span class="sale">SALE!</span>
-      </h1>
-
-      <div class="sub">
-        Lots of great items for sale
-      </div>
-
-      <p class="description">
-        Come check out clothes, shoes,
-        household goods, home decor,
-        electronics and plenty of random
-        finds.
-      </p>
-
+  <div class="poster">
+    <div class="header">
+      <h2>Mr. DoneRite's</h2>
+      <h1>Yard Sale!</h1>
     </div>
 
-
-    <div class="right">
-
-      <img
-        class="character"
-        src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=85"
-        alt="Yard sale items"
-      >
-
-      <div class="info">
-
-        <div class="date">
-          NEXT SALE
-        </div>
-
-        <div class="time">
-          SATURDAY & SUNDAY · 9 AM – 2 PM
-        </div>
-
-        <div class="address">
-          128 NEWBURY ST
-        </div>
-
+    <div class="main-board">
+      <div class="join-us">★ JOIN US! ★</div>
+      <div class="date">SEPTEMBER 12<sup>TH</sup> & 13<sup>TH</sup></div>
+      <div class="time-badge">8:00 AM – 2:00 PM</div>
+      
+      <div class="location">
+        📍 <strong>190 CENTER ST., MIDDLEBORO</strong><br>
+        <small>(FOLLOW THE SIGNS!)</small>
       </div>
 
-
-      <div class="items">
-
-        <div class="item" style="--r:-3deg">
-          <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=500&q=80">
-          <span>Clothes</span>
-        </div>
-
-        <div class="item" style="--r:2deg">
-          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80">
-          <span>Shoes</span>
-        </div>
-
-        <div class="item" style="--r:-2deg">
-          <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=500&q=80">
-          <span>Decor</span>
-        </div>
-
-        <div class="item" style="--r:3deg">
-          <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=500&q=80">
-          <span>Electronics</span>
-        </div>
-
-      </div>
-
+      <ul class="items-list">
+        <li>CLOTHES</li>
+        <li>TOYS</li>
+        <li>TOOLS</li>
+        <li>SPORTS EQUIPMENT</li>
+        <li>HOUSEHOLD GOODS</li>
+        <li>DECORATIONS</li>
+      </ul>
     </div>
 
-  </main>
+    <div class="side-banner">
+      🍋 LEMONADE STAND! 🍋
+    </div>
 
-</div>
+    <div class="footer">
+      SHOP ★ SUPPORT ★ HAVE FUN!
+    </div>
+  </div>
 
 </body>
 </html>
