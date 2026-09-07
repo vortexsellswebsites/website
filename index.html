@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CHAMPION — Good Deals</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #080808;
+      color: #f5f2eb;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    nav {
+      position: sticky;
+      top: 16px;
+      z-index: 100;
+
+      width: 92%;
+      max-width: 1150px;
+      margin: 18px auto;
+
+      padding: 17px 22px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      background: rgba(14, 14, 14, .88);
+      backdrop-filter: blur(18px);
+
+      border: 1px solid #292929;
+      border-radius: 18px;
+    }
+
+    .logo {
+      color: white;
+      text-decoration: none;
+      font-size: 25px;
+      font-weight: 900;
+      letter-spacing: 3px;
+    }
+
+    .logo span {
+      color: #c9a45c;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      color: #a7a7a7;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 760px;
+
+      max-width: 1100px;
+      margin: auto;
+
+      padding: 130px 20px 90px;
+
+      text-align: center;
+
+      background:
+        radial-gradient(
+          circle at 50% 5%,
+          rgba(201,164,92,.17),
+          transparent 43%
+        );
+    }
+
+    .eyebrow {
+      display: inline-block;
+
+      padding: 9px 17px;
+
+      border: 1px solid #4c402a;
+      border-radius: 100px;
+
+      color: #d5b574;
+      background: #15120c;
+
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    .hero h1 {
+      margin-top: 30px;
+
+      font-size: clamp(65px, 11vw, 125px);
+      line-height: .86;
+
+      letter-spacing: -8px;
+      font-weight: 900;
+    }
+
+    .hero h1 span {
+      color: #c9a45c;
+    }
+
+    .hero p {
+      max-width: 650px;
+
+      margin: 35px auto;
+
+      color: #999999;
+
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+
+      margin-top: 35px;
+    }
+
+    .button {
+      display: inline-block;
+
+      padding: 15px 25px;
+
+      border-radius: 13px;
+
+      text-decoration: none;
+
+      font-weight: 800;
+    }
+
+    .primary {
+      background: #c9a45c;
+      color: #111;
+    }
+
+    .secondary {
+      color: white;
+      background: #151515;
+      border: 1px solid #303030;
+    }
+
+    /* ITEMS */
+
+    .section {
+      width: 92%;
+      max-width: 1150px;
+
+      margin: auto;
+
+      padding: 100px 0;
+    }
+
+    .label {
+      color: #c9a45c;
+
+      font-size: 11px;
+      font-weight: 900;
+
+      letter-spacing: 2px;
+    }
+
+    .section h2 {
+      margin-top: 16px;
+      margin-bottom: 50px;
+
+      font-size: clamp(43px, 7vw, 72px);
+
+      line-height: .95;
+      letter-spacing: -5px;
+    }
+
+    .section h2 span {
+      color: #c9a45c;
+    }
+
+    .items {
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 17px;
+    }
+
+    .item {
+      overflow: hidden;
+
+      background: #111;
+
+      border: 1px solid #292929;
+      border-radius: 20px;
+
+      transition: .25s;
+    }
+
+    .item:hover {
+      transform: translateY(-5px);
+      border-color: #55482e;
+    }
+
+    .item-image {
+      height: 260px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background:
+        radial-gradient(
+          circle at center,
+          #303030,
+          #101010 65%
+        );
+
+      font-size: 80px;
+    }
+
+    .item-info {
+      padding: 25px;
+    }
+
+    .item-category {
+      color: #777;
+
+      font-size: 10px;
+      font-weight: 900;
+
+      letter-spacing: 2px;
+    }
+
+    .item h3 {
+      margin-top: 10px;
+
+      font-size: 23px;
+    }
+
+    .item p {
+      margin-top: 9px;
+
+      color: #858585;
+
+      line-height: 1.6;
+    }
+
+    /* ABOUT */
+
+    .about {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 60px;
+
+      align-items: center;
+    }
+
+    .about p {
+      color: #999;
+
+      line-height: 1.8;
+
+      font-size: 17px;
+    }
+
+    .about-card {
+      min-height: 330px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      text-align: center;
+
+      background:
+        radial-gradient(
+          circle,
+          #29251c,
+          #101010 65%
+        );
+
+      border: 1px solid #403825;
+      border-radius: 25px;
+    }
+
+    .trophy {
+      font-size: 75px;
+      margin-bottom: 20px;
+    }
+
+    .about-card h3 {
+      font-size: 25px;
+      letter-spacing: 3px;
+    }
+
+    .about-card p {
+      margin-top: 12px;
+      font-size: 14px;
+    }
+
+    /* DETAILS */
+
+    .details {
+      border-top: 1px solid #222;
+    }
+
+    .info {
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      border: 1px solid #292929;
+      border-radius: 20px;
+
+      overflow: hidden;
+    }
+
+    .info-box {
+      padding: 30px;
+
+      border-right: 1px solid #292929;
+      background: #101010;
+    }
+
+    .info-box:last-child {
+      border-right: none;
+    }
+
+    .info-box small {
+      color: #777;
+
+      font-size: 10px;
+      font-weight: 900;
+
+      letter-spacing: 2px;
+    }
+
+    .info-box strong {
+      display: block;
+
+      margin-top: 12px;
+
+      font-size: 18px;
+    }
+
+    .sale-note {
+      margin-top: 20px;
+
+      color: #777;
+
+      font-size: 14px;
+    }
+
+    /* CTA */
+
+    .cta {
+      width: 92%;
+      max-width: 1050px;
+
+      margin: 30px auto 100px;
+
+      padding: 90px 25px;
+
+      text-align: center;
+
+      border: 1px solid #4d4029;
+      border-radius: 28px;
+
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(201,164,92,.13),
+          transparent 62%
+        );
+    }
+
+    .cta h2 {
+      margin: 15px 0;
+
+      font-size: clamp(45px, 7vw, 75px);
+
+      letter-spacing: -5px;
+    }
+
+    .cta h2 span {
+      color: #c9a45c;
+    }
+
+    .cta p {
+      margin-bottom: 30px;
+
+      color: #919191;
+    }
+
+    footer {
+      padding: 40px;
+
+      text-align: center;
+
+      color: #666;
+
+      border-top: 1px solid #202020;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 700px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 100px;
+      }
+
+      .hero h1 {
+        letter-spacing: -5px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .items {
+        grid-template-columns: 1fr;
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .info {
+        grid-template-columns: 1fr;
+      }
+
+      .info-box {
+        border-right: none;
+        border-bottom: 1px solid #292929;
+      }
+
+      .info-box:last-child {
+        border-bottom: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <nav>
+
+    <a href="#" class="logo">
+      CHAMPION<span>.</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="#items">Items</a>
+      <a href="#about">About</a>
+      <a href="#details">Sale Info</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+  </nav>
+
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="eyebrow">
+      ✦ TWICE A MONTH • LOCAL FINDS
+    </div>
+
+    <h1>
+      Good<br>
+      <span>Deals.</span>
+    </h1>
+
+    <p>
+      Welcome to Champion — a local place to discover
+      clothes, unique finds and random items at prices
+      worth checking out.
+    </p>
+
+    <div class="buttons">
+
+      <a href="#items" class="button primary">
+        Explore Finds →
+      </a>
+
+      <a href="#details" class="button secondary">
+        Sale Information
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- ITEMS -->
+
+  <section class="section" id="items">
+
+    <div class="label">
+      WHAT YOU'LL FIND
+    </div>
+
+    <h2>
+      Something for<br>
+      <span>everyone.</span>
+    </h2>
+
+    <div class="items">
+
+      <div class="item">
+
+        <div class="item-image">
+          👕
+        </div>
+
+        <div class="item-info">
+
+          <div class="item-category">
+            CLOTHING
+          </div>
+
+          <h3>
+            Clothes & Fashion
+          </h3>
+
+          <p>
+            Find clothes, shoes, accessories
+            and other fashion finds.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="item">
+
+        <div class="item-image">
+          📦
+        </div>
+
+        <div class="item-info">
+
+          <div class="item-category">
+            RANDOM FINDS
+          </div>
+
+          <h3>
+            Unique Items
+          </h3>
+
+          <p>
+            You never know what you'll find.
+            New items can appear every sale.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="item">
+
+        <div class="item-image">
+          💎
+        </div>
+
+        <div class="item-info">
+
+          <div class="item-category">
+            GREAT DEALS
+          </div>
+
+          <h3>
+            Hidden Gems
+          </h3>
+
+          <p>
+            Interesting items and unexpected
+            finds at affordable prices.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+
+  <section class="section" id="about">
+
+    <div class="about">
+
+      <div>
+
+        <div class="label">
+          ABOUT CHAMPION
+        </div>
+
+        <h2>
+          Come looking.<br>
+          <span>Leave with a deal.</span>
+        </h2>
+
+        <p>
+          Champion is a local weekend yard-sale
+          business focused on clothes, random items
+          and finding good deals.
+        </p>
+
+        <br>
+
+        <p>
+          Sales happen twice a month, so every visit
+          can have something different.
+        </p>
+
+      </div>
+
+
+      <div class="about-card">
+
+        <div class="trophy">
+          🏆
+        </div>
+
+        <h3>
+          CHAMPION
+        </h3>
+
+        <p>
+          GOOD FINDS.<br>
+          BETTER PRICES.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SALE DETAILS -->
+
+  <section class="section details" id="details">
+
+    <div class="label">
+      SALE INFORMATION
+    </div>
+
+    <h2>
+      Come find<br>
+      <span>your deal.</span>
+    </h2>
+
+    <div class="info">
+
+      <div class="info-box">
+
+        <small>
+          WHEN
+        </small>
+
+        <strong>
+          Twice a month
+        </strong>
+
+      </div>
+
+
+      <div class="info-box">
+
+        <small>
+          DAYS
+        </small>
+
+        <strong>
+          Saturday & Sunday
+        </strong>
+
+      </div>
+
+
+      <div class="info-box">
+
+        <small>
+          LOCATION
+        </small>
+
+        <strong>
+          128 Newbury St
+        </strong>
+
+      </div>
+
+    </div>
+
+    <p class="sale-note">
+      Check back for the next sale date and weekend details.
+    </p>
+
+  </section>
+
+
+  <!-- CONTACT -->
+
+  <section class="cta" id="contact">
+
+    <div class="label">
+      CHAMPION
+    </div>
+
+    <h2>
+      Ready to find<br>
+      <span>a good deal?</span>
+    </h2>
+
+    <p>
+      Have a question about the sale or an item?
+      Get in touch.
+    </p>
+
+    <!-- Replace the email below -->
+
+    <a
+      href="mailto:YOUR-EMAIL@example.com"
+      class="button primary"
+    >
+      Contact Champion →
+    </a>
+
+  </section>
+
+
+  <footer>
+    © 2026 Champion · Local Yard Sale
+  </footer>
+
+</body>
+</html>
