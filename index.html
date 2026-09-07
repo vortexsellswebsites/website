@@ -1,387 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>128 Newbury - Yard Sale Poster</title>
-<style>
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>128 Newbury Yard Sale</title>
 
-  body {
-    background-color: #111827;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    font-family: 'Impact', 'Arial Black', sans-serif;
-    padding: 20px;
-  }
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  /* POSTER CONTAINER */
-  .poster {
-    width: 460px;
-    height: 720px;
-    background: linear-gradient(180deg, #b9d8fc 0%, #e8f2fe 35%, #d1e2f7 100%);
-    border: 8px solid #1a2332;
-    border-radius: 12px;
-    position: relative;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-    overflow: hidden;
-  }
+        body {
+            min-height: 100vh;
+            background: #f4efe3;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+        }
 
-  /* BUNTING FLAGS AT TOP */
-  .bunting {
-    display: flex;
-    justify-content: space-between;
-    height: 18px;
-    margin: -10px -10px 0 -10px;
-  }
-
-  .flag {
-    width: 0;
-    height: 0;
-    border-left: 11px solid transparent;
-    border-right: 11px solid transparent;
-    border-top: 18px solid #dc2626;
-  }
-  .flag:nth-child(even) { border-top-color: #2563eb; }
-  .flag:nth-child(3n) { border-top-color: #eab308; }
-  .flag:nth-child(4n) { border-top-color: #16a34a; }
-
-  /* HEADER */
-  .header {
-    text-align: left;
-    margin-top: 2px;
-    z-index: 2;
-  }
-
-  .sub-header {
-    color: #1e3a8a;
-    font-size: 1.4rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    text-shadow: 1px 1px 0px #fff;
-  }
-
-  .title-yard {
-    font-size: 3.6rem;
-    color: #1e3a8a;
-    line-height: 0.85;
-    letter-spacing: -1px;
-    text-shadow: 3px 3px 0px #fff, -2px -2px 0px #fff, 2px -2px 0px #fff, -2px 2px 0px #fff;
-    text-transform: uppercase;
-  }
-
-  .title-sale {
-    font-size: 4.5rem;
-    color: #dc2626;
-    line-height: 0.85;
-    letter-spacing: -1px;
-    text-shadow: 4px 4px 0px #7f1d1d, -2px -2px 0px #fff, 2px -2px 0px #fff, -2px 2px 0px #fff;
-    text-transform: uppercase;
-  }
-
-  /* HUMAN CHARACTER */
-  .character-container {
-    position: absolute;
-    top: 25px;
-    right: 12px;
-    z-index: 2;
-    text-align: center;
-  }
-
-  .character-img {
-    width: 135px;
-    height: 135px;
-    border-radius: 50%;
-    border: 4px solid #1e3a8a;
-    object-fit: cover;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  }
-
-  .character-badge {
-    background: #2563eb;
-    color: #ffffff;
-    font-size: 0.65rem;
-    padding: 3px 8px;
-    border-radius: 10px;
-    border: 2px solid #fff;
-    margin-top: -12px;
-    display: inline-block;
-    position: relative;
-    z-index: 3;
-    letter-spacing: 0.5px;
-  }
-
-  /* MIDDLE SECTION LAYOUT */
-  .middle-section {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 5px;
-    z-index: 2;
-  }
-
-  /* MAIN SIGN BOARD */
-  .sign-board {
-    width: 58%;
-    background: #fffdf5;
-    border: 4px solid #78350f;
-    border-radius: 6px;
-    padding: 8px;
-    box-shadow: 3px 4px 8px rgba(0,0,0,0.2);
-    text-align: center;
-  }
-
-  .join-us {
-    color: #15803d;
-    font-size: 1.1rem;
-    letter-spacing: 1px;
-  }
-
-  .date-text {
-    color: #b91c1c;
-    font-size: 1.35rem;
-    line-height: 1;
-    margin: 2px 0;
-  }
-
-  .time-badge {
-    background: #1d4ed8;
-    color: #ffffff;
-    font-size: 0.72rem;
-    padding: 2px 4px;
-    border-radius: 3px;
-    margin: 3px 0;
-  }
-
-  .location-box {
-    font-family: Arial, sans-serif;
-    font-weight: 900;
-    font-size: 0.75rem;
-    color: #1e293b;
-    margin-bottom: 5px;
-  }
-
-  /* CHECKLIST */
-  .checklist {
-    background: #ffffff;
-    border: 1px solid #cbd5e1;
-    border-radius: 4px;
-    padding: 4px 6px;
-    text-align: left;
-    font-family: Arial, sans-serif;
-    font-weight: 800;
-    font-size: 0.68rem;
-    color: #1e293b;
-  }
-
-  .check-item {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    margin-bottom: 2px;
-    border-bottom: 1px dashed #e2e8f0;
-  }
-  .check-item:last-child { border-bottom: none; margin-bottom: 0; }
-
-  .checkmark {
-    background: #2563eb;
-    color: #fff;
-    border-radius: 50%;
-    width: 12px;
-    height: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 8px;
-  }
-
-  /* RIGHT SIDE COLUMN */
-  .right-col {
-    width: 38%;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .burst-badge {
-    background: #facc15;
-    color: #78350f;
-    border: 2px dashed #ca8a04;
-    border-radius: 6px;
-    padding: 6px 4px;
-    text-align: center;
-    transform: rotate(-2deg);
-    box-shadow: 2px 2px 0px rgba(0,0,0,0.15);
-  }
-
-  .burst-badge h3 {
-    font-size: 0.8rem;
-    line-height: 1.1;
-    color: #991b1b;
-  }
-
-  .stand-card {
-    background: #fef3c7;
-    border: 3px solid #b45309;
-    border-radius: 6px;
-    padding: 6px;
-    text-align: center;
-    box-shadow: 2px 3px 6px rgba(0,0,0,0.15);
-  }
-
-  .stand-title {
-    color: #92400e;
-    font-size: 0.9rem;
-    line-height: 1.1;
-  }
-
-  .stand-desc {
-    font-family: Arial, sans-serif;
-    font-size: 0.62rem;
-    font-weight: bold;
-    color: #b45309;
-    margin-top: 3px;
-  }
-
-  /* FOOTER BANNERS */
-  .ribbon-banner {
-    background: #ffffff;
-    border: 2px solid #94a3b8;
-    border-radius: 20px;
-    text-align: center;
-    padding: 3px;
-    font-size: 0.8rem;
-    color: #1e293b;
-    margin-bottom: 4px;
-  }
-
-  .family-banner {
-    background: #facc15;
-    color: #78350f;
-    text-align: center;
-    padding: 4px;
-    border-radius: 4px;
-    font-size: 0.95rem;
-    letter-spacing: 0.5px;
-  }
-
-  .footer-strip {
-    background: #1e3a8a;
-    color: #ffffff;
-    text-align: center;
-    padding: 6px;
-    margin-left: -10px;
-    margin-right: -10px;
-    margin-bottom: -10px;
-    font-size: 0.95rem;
-    letter-spacing: 1px;
-  }
-
-  .heart { color: #ef4444; }
-  .star { color: #facc15; }
-</style>
+        .flyer {
+            width: 100%;
+            max-width: 700px;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+    </style>
 </head>
+
 <body>
 
-<div class="poster">
-
-  <!-- BUNTING -->
-  <div class="bunting">
-    <div class="flag"></div><div class="flag"></div><div class="flag"></div>
-    <div class="flag"></div><div class="flag"></div><div class="flag"></div>
-    <div class="flag"></div><div class="flag"></div><div class="flag"></div>
-    <div class="flag"></div><div class="flag"></div><div class="flag"></div>
-    <div class="flag"></div><div class="flag"></div><div class="flag"></div>
-    <div class="flag"></div><div class="flag"></div><div class="flag"></div>
-    <div class="flag"></div><div class="flag"></div><div class="flag"></div>
-  </div>
-
-  <!-- DIFFERENT HUMAN PORTRAIT -->
-  <div class="character-container">
-    <img 
-      class="character-img" 
-      src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80" 
-      alt="Host Portrait"
+    <img
+        class="flyer"
+        src="10314A52-CED0-4C8B-9953-99D4AAE7F824.png"
+        alt="128 Newbury Yard Sale"
     >
-    <div class="character-badge">MS. NEWBURY</div>
-  </div>
-
-  <!-- HEADER TEXT -->
-  <div class="header">
-    <div class="sub-header">WELCOME TO</div>
-    <div class="title-yard">128 NEWBURY</div>
-    <div class="title-sale">YARD SALE!</div>
-  </div>
-
-  <!-- MIDDLE SECTION -->
-  <div class="middle-section">
-    
-    <!-- MAIN SIGN BOARD -->
-    <div class="sign-board">
-      <div class="join-us">≡ JOIN US! ≡</div>
-      <div class="date-text">OCTOBER<br>17<sup>TH</sup> & 18<sup>TH</sup></div>
-      <div class="time-badge">9:00 AM – 3:00 PM</div>
-      
-      <div class="location-box">
-        📍 128 NEWBURY ST.<br>
-        <small style="font-weight:normal; font-size:0.65rem;">(FOLLOW THE SIGNS!)</small>
-      </div>
-
-      <div class="checklist">
-        <div class="check-item"><span class="checkmark">✓</span> CLOTHES</div>
-        <div class="check-item"><span class="checkmark">✓</span> TOYS</div>
-        <div class="check-item"><span class="checkmark">✓</span> TOOLS</div>
-        <div class="check-item"><span class="checkmark">✓</span> SPORTS GEAR</div>
-        <div class="check-item"><span class="checkmark">✓</span> HOME GOODS</div>
-        <div class="check-item"><span class="checkmark">✓</span> DECORATIONS</div>
-      </div>
-    </div>
-
-    <!-- RIGHT SIDE BADGES -->
-    <div class="right-col">
-      
-      <div class="burst-badge">
-        <h3>LOTS OF GREAT ITEMS FOR SALE!</h3>
-      </div>
-
-      <div class="stand-card">
-        <div class="stand-title">LEMONADE STAND! 🍋</div>
-        <div class="stand-desc">
-          FRESH LEMONADE<br>
-          SWEET TREATS<br>
-          FUN FOR ALL! <span class="heart">♥</span>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-
-  <!-- FOOTER -->
-  <div>
-    <div class="ribbon-banner">
-      GREAT FINDS • GREAT PRICES • GREAT DAY!
-    </div>
-
-    <div class="family-banner">
-      BRING YOUR FAMILY & FRIENDS! <span class="heart">♥</span>
-    </div>
-  </div>
-
-  <div class="footer-strip">
-    <span class="star">★</span> SHOP • SUPPORT • HAVE FUN! <span class="star">★</span>
-  </div>
-
-</div>
 
 </body>
 </html>
