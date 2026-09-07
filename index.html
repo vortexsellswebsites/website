@@ -6,7 +6,11 @@
 <title>CHAMPION. Yard Sale</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
 html,body{
   width:100%;
@@ -16,226 +20,279 @@ html,body{
 
 body{
   font-family:Arial,Helvetica,sans-serif;
-  background:#08783e;
-  color:white;
+  background:#176b3a;
 }
 
 .poster{
   width:100vw;
   height:100vh;
-  min-height:500px;
-  position:relative;
   overflow:hidden;
-
+  position:relative;
   background:
-    linear-gradient(rgba(0,85,40,.72),rgba(0,55,25,.84)),
-    url("https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=2000&q=90")
+    linear-gradient(rgba(255,244,210,.18),rgba(0,70,30,.15)),
+    url("https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=1800&q=85")
     center/cover;
 }
 
-.top{
-  height:10%;
+/* OLD POSTER TEXTURE */
+
+.poster:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:rgba(255,255,255,.08);
+}
+
+/* TOP */
+
+.header{
+  position:relative;
+  z-index:2;
+  height:12%;
+  background:#f7edcf;
+  border-bottom:7px solid #173b91;
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  padding:0 4%;
+  justify-content:center;
+  text-align:center;
 }
 
 .logo{
-  font-size:clamp(22px,3.5vw,50px);
-  font-weight:900;
-  letter-spacing:-3px;
+  color:#173b91;
+  font-size:clamp(25px,5vw,65px);
+  font-weight:1000;
+  letter-spacing:2px;
+  text-transform:uppercase;
 }
 
-.tag{
-  background:#fff;
-  color:#08783e;
-  padding:8px 15px;
-  border-radius:30px;
-  font-size:clamp(9px,1vw,14px);
-  font-weight:900;
-}
+/* MAIN POSTER */
 
-.content{
-  height:90%;
-  padding:1% 4% 2%;
+.main{
+  position:relative;
+  z-index:2;
+  height:88%;
+  padding:2vh 4vw;
   display:grid;
-  grid-template-columns:1.05fr 1fr;
-  grid-template-rows:auto auto 1fr auto;
-  column-gap:3%;
-  align-items:center;
+  grid-template-columns:1.05fr .95fr;
+  gap:2vw;
+  background:
+    linear-gradient(135deg,#f8edcf 0%,#fff7dc 55%,#e9dfb8 100%);
 }
+
+/* LEFT */
 
 .left{
-  grid-row:1/5;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-width:0;
 }
 
-.eyebrow{
-  font-size:clamp(10px,1.2vw,18px);
-  font-weight:900;
+.small{
+  color:#d72b24;
+  font-weight:1000;
+  font-size:clamp(11px,1.5vw,20px);
   letter-spacing:3px;
-  margin-bottom:12px;
+  text-transform:uppercase;
 }
 
 h1{
-  font-size:clamp(65px,10.5vw,155px);
-  line-height:.72;
-  letter-spacing:-8px;
+  color:#183c93;
+  font-size:clamp(65px,10vw,155px);
+  line-height:.78;
   font-weight:1000;
+  text-transform:uppercase;
+  letter-spacing:-7px;
+  text-shadow:5px 5px 0 #d92723;
+  margin:1vh 0 2vh;
 }
 
-h1 span{
-  display:block;
+.sale{
+  color:#d92723;
 }
 
-.badge{
+.sub{
+  background:#183c93;
+  color:white;
   display:inline-block;
-  background:#fff;
-  color:#08783e;
-  padding:9px 16px;
-  margin-top:20px;
-  font-size:clamp(13px,1.6vw,23px);
-  font-weight:900;
+  width:max-content;
+  padding:8px 16px;
+  font-size:clamp(12px,1.5vw,21px);
+  font-weight:1000;
+  text-transform:uppercase;
   transform:rotate(-2deg);
 }
 
 .description{
-  max-width:520px;
-  margin-top:18px;
-  font-size:clamp(13px,1.5vw,21px);
-  line-height:1.2;
+  color:#222;
   font-weight:700;
+  font-size:clamp(13px,1.5vw,22px);
+  max-width:600px;
+  line-height:1.25;
+  margin-top:2vh;
 }
 
-/* PHOTOS */
+/* RIGHT */
 
-.photos{
+.right{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+}
+
+.character{
+  width:58%;
+  max-height:65%;
+  object-fit:cover;
+  border:8px solid #183c93;
+  border-radius:35px;
+  box-shadow:10px 10px 0 #d92723;
+}
+
+/* INFO CARD */
+
+.info{
+  position:absolute;
+  bottom:3%;
+  left:4%;
+  width:92%;
+  background:#fff4d2;
+  border:6px solid #183c93;
+  padding:12px;
+  text-align:center;
+  box-shadow:7px 7px 0 #d92723;
+}
+
+.date{
+  color:#d92723;
+  font-size:clamp(19px,2.7vw,40px);
+  font-weight:1000;
+  text-transform:uppercase;
+}
+
+.time{
+  color:#183c93;
+  font-size:clamp(15px,2vw,28px);
+  font-weight:1000;
+  margin-top:3px;
+}
+
+.address{
+  color:#111;
+  font-size:clamp(12px,1.4vw,20px);
+  font-weight:900;
+  margin-top:5px;
+}
+
+/* ITEM STRIP */
+
+.items{
+  position:absolute;
+  z-index:5;
+  bottom:2%;
+  right:4%;
+  width:44%;
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:8px;
-  align-self:center;
+  grid-template-columns:repeat(4,1fr);
+  gap:7px;
 }
 
 .item{
-  background:#fff;
-  color:#08783e;
-  overflow:hidden;
+  background:white;
+  border:4px solid #183c93;
+  transform:rotate(var(--r));
 }
 
 .item img{
   display:block;
   width:100%;
-  height:clamp(85px,12vh,145px);
+  height:clamp(55px,8vh,100px);
   object-fit:cover;
 }
 
-.item-name{
-  padding:7px 8px;
-  font-size:clamp(10px,1.1vw,15px);
-  font-weight:900;
+.item span{
+  display:block;
+  color:#183c93;
+  font-size:clamp(8px,1vw,13px);
+  font-weight:1000;
+  text-align:center;
+  padding:4px;
   text-transform:uppercase;
 }
 
-/* INFO */
-
-.info{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  border-top:1px solid rgba(255,255,255,.7);
-  padding-top:12px;
-  margin-top:12px;
-}
-
-.info-box{
-  padding-right:12px;
-}
-
-.info-box+.info-box{
-  border-left:1px solid rgba(255,255,255,.45);
-  padding-left:12px;
-}
-
-.info-title{
-  font-size:clamp(8px,.8vw,12px);
-  letter-spacing:2px;
-  font-weight:900;
-  margin-bottom:4px;
-}
-
-.info-text{
-  font-size:clamp(11px,1.2vw,17px);
-  font-weight:900;
-}
-
-/* SMALLER SCREENS */
+/* MOBILE */
 
 @media(max-width:700px){
 
-  .top{
-    height:8%;
-    padding:0 4%;
+  .header{
+    height:9%;
+    border-bottom:4px solid #173b91;
   }
 
-  .content{
-    height:92%;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:stretch;
-    gap:0;
-    padding:0 4% 2%;
+  .main{
+    height:91%;
+    display:block;
+    padding:2vh 5vw;
   }
 
   .left{
-    flex:none;
-  }
-
-  .eyebrow{
-    margin-bottom:8px;
-    font-size:10px;
+    height:56%;
+    justify-content:center;
   }
 
   h1{
-    font-size:clamp(55px,17vw,95px);
-    letter-spacing:-6px;
-  }
-
-  .badge{
-    margin-top:14px;
-    font-size:13px;
-    padding:7px 12px;
+    font-size:clamp(58px,18vw,100px);
+    letter-spacing:-5px;
+    margin:1vh 0;
   }
 
   .description{
     font-size:13px;
-    margin-top:12px;
+    max-width:95%;
+    margin-top:10px;
   }
 
-  .photos{
-    margin-top:14px;
-    gap:5px;
+  .right{
+    height:44%;
   }
 
-  .item img{
-    height:75px;
-  }
-
-  .item-name{
-    font-size:9px;
-    padding:5px;
+  .character{
+    width:48%;
+    max-height:75%;
+    border-width:5px;
+    border-radius:22px;
+    box-shadow:6px 6px 0 #d92723;
   }
 
   .info{
-    margin-top:12px;
-    padding-top:9px;
+    left:0;
+    bottom:0;
+    width:52%;
+    padding:7px;
+    border-width:4px;
+    box-shadow:4px 4px 0 #d92723;
   }
 
-  .info-text{
-    font-size:10px;
+  .items{
+    right:0;
+    bottom:0;
+    width:44%;
+    gap:4px;
   }
 
-  .info-title{
+  .item{
+    border-width:2px;
+  }
+
+  .item img{
+    height:52px;
+  }
+
+  .item span{
     font-size:7px;
+    padding:2px;
   }
 }
 </style>
@@ -243,96 +300,93 @@ h1 span{
 
 <body>
 
-<main class="poster">
+<div class="poster">
 
-  <div class="top">
+  <header class="header">
     <div class="logo">CHAMPION.</div>
-    <div class="tag">LOCAL YARD SALE</div>
-  </div>
+  </header>
 
-  <div class="content">
+  <main class="main">
 
     <div class="left">
 
-      <div class="eyebrow">
-        GOOD FINDS · GOOD DEALS
+      <div class="small">
+        Good Finds • Good Deals
       </div>
 
       <h1>
-        YARD
-        <span>SALE.</span>
+        YARD<br>
+        <span class="sale">SALE!</span>
       </h1>
 
-      <div class="badge">
-        COME FIND SOMETHING GREAT
+      <div class="sub">
+        Lots of great items for sale
       </div>
 
       <p class="description">
-        Clothes, shoes, household items,
-        electronics, home decor, accessories
-        and random finds.
+        Come check out clothes, shoes,
+        household goods, home decor,
+        electronics and plenty of random
+        finds.
       </p>
 
     </div>
 
 
-    <div class="photos">
+    <div class="right">
 
-      <div class="item">
-        <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=500&q=80">
-        <div class="item-name">Clothes</div>
+      <img
+        class="character"
+        src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=85"
+        alt="Yard sale items"
+      >
+
+      <div class="info">
+
+        <div class="date">
+          NEXT SALE
+        </div>
+
+        <div class="time">
+          SATURDAY & SUNDAY · 9 AM – 2 PM
+        </div>
+
+        <div class="address">
+          128 NEWBURY ST
+        </div>
+
       </div>
 
-      <div class="item">
-        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80">
-        <div class="item-name">Shoes</div>
-      </div>
 
-      <div class="item">
-        <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=500&q=80">
-        <div class="item-name">Home Decor</div>
-      </div>
+      <div class="items">
 
-      <div class="item">
-        <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=500&q=80">
-        <div class="item-name">Electronics</div>
-      </div>
+        <div class="item" style="--r:-3deg">
+          <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=500&q=80">
+          <span>Clothes</span>
+        </div>
 
-      <div class="item">
-        <img src="https://images.unsplash.com/photo-1600494603989-9650cf6ddd3d?auto=format&fit=crop&w=500&q=80">
-        <div class="item-name">Household</div>
-      </div>
+        <div class="item" style="--r:2deg">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80">
+          <span>Shoes</span>
+        </div>
 
-      <div class="item">
-        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=500&q=80">
-        <div class="item-name">Accessories</div>
-      </div>
+        <div class="item" style="--r:-2deg">
+          <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=500&q=80">
+          <span>Decor</span>
+        </div>
 
-    </div>
+        <div class="item" style="--r:3deg">
+          <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=500&q=80">
+          <span>Electronics</span>
+        </div>
 
-
-    <div class="info">
-
-      <div class="info-box">
-        <div class="info-title">NEXT SALE</div>
-        <div class="info-text">SATURDAY & SUNDAY</div>
-      </div>
-
-      <div class="info-box">
-        <div class="info-title">HOURS</div>
-        <div class="info-text">9 AM — 2 PM</div>
-      </div>
-
-      <div class="info-box">
-        <div class="info-title">LOCATION</div>
-        <div class="info-text">128 NEWBURY ST</div>
       </div>
 
     </div>
 
-  </div>
+  </main>
 
-</main>
+</div>
 
 </body>
 </html>
