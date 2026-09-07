@@ -3,167 +3,184 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mr. DoneRite's Yard Sale</title>
+  <title>128 Newbury - Resale Shop</title>
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Arial Black', Arial, sans-serif;
     }
 
-    body {
-      background-color: #f4f4f4;
+    html, body {
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
-      padding: 20px;
     }
 
-    .poster {
-      background: linear-gradient(180deg, #e8f0fe 0%, #ffffff 100%);
-      width: 100%;
-      max-width: 450px;
-      border: 8px solid #1a2a6c;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-      overflow: hidden;
-      text-align: center;
-      position: relative;
+    .flyer {
+      width: 100vw;
+      height: 100vh;
+      max-width: 500px;
+      max-height: 900px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+      background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
     }
 
     .header {
-      background-color: #1b365d;
-      color: #ffffff;
-      padding: 15px 10px;
-    }
-
-    .header h2 {
-      font-size: 1.2rem;
-      color: #f39c12;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      text-align: center;
+      background: #2563eb;
+      padding: 12px 8px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
     }
 
     .header h1 {
-      font-size: 2.8rem;
-      color: #e74c3c;
-      text-shadow: 2px 2px 0px #ffffff, 4px 4px 0px #000;
-      margin-top: -5px;
-      text-transform: uppercase;
-    }
-
-    .main-board {
-      background-color: #fff8eb;
-      border: 4px solid #8e44ad;
-      margin: 15px;
-      padding: 15px;
-      border-radius: 8px;
-    }
-
-    .join-us {
-      color: #27ae60;
-      font-size: 1.4rem;
-      text-transform: uppercase;
-    }
-
-    .date {
-      color: #c0392b;
       font-size: 2rem;
-      margin: 5px 0;
-    }
-
-    .time-badge {
-      background-color: #2980b9;
+      font-weight: 900;
+      letter-spacing: 1px;
       color: #ffffff;
-      padding: 6px 12px;
-      border-radius: 20px;
-      display: inline-block;
-      font-size: 0.9rem;
-      margin-bottom: 10px;
+      line-height: 1;
     }
 
-    .location {
-      color: #333333;
+    .header p {
       font-size: 0.95rem;
-      margin-bottom: 15px;
-      font-family: Arial, sans-serif;
+      font-weight: 700;
+      color: #fef08a;
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
-    .items-list {
-      list-style: none;
-      text-align: left;
-      max-width: 260px;
-      margin: 0 auto;
-      font-family: Arial, sans-serif;
-      font-weight: bold;
-      color: #2c3e50;
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 8px;
+      flex-grow: 1;
+      min-height: 0;
     }
 
-    .items-list li {
-      padding: 4px 0;
-      border-bottom: 1px dashed #cccccc;
+    .img-box {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #334155;
     }
 
-    .items-list li::before {
-      content: "✔ ";
-      color: #27ae60;
+    .img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
-    .side-banner {
-      background-color: #f1c40f;
-      color: #d35400;
-      padding: 10px;
-      margin: 10px 15px;
-      border-radius: 6px;
-      font-size: 1.1rem;
+    .img-box span {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(15, 23, 42, 0.85);
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-align: center;
+      padding: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .info-card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 10px;
+      padding: 10px 12px;
+      text-align: center;
+    }
+
+    .info-card p {
+      font-size: 0.85rem;
+      line-height: 1.35;
+      color: #cbd5e1;
+    }
+
+    .highlights {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .tag {
+      background: #334155;
+      color: #38bdf8;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 12px;
       text-transform: uppercase;
     }
 
     .footer {
-      background-color: #1b365d;
+      background: #e11d48;
       color: #ffffff;
-      padding: 12px;
-      font-size: 0.9rem;
-      letter-spacing: 1px;
+      text-align: center;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
     }
   </style>
 </head>
 <body>
 
-  <div class="poster">
+  <div class="flyer">
     <div class="header">
-      <h2>Mr. DoneRite's</h2>
-      <h1>Yard Sale!</h1>
+      <h1>128 NEWBURY</h1>
+      <p>Something Different Every Time</p>
     </div>
 
-    <div class="main-board">
-      <div class="join-us">★ JOIN US! ★</div>
-      <div class="date">SEPTEMBER 12<sup>TH</sup> & 13<sup>TH</sup></div>
-      <div class="time-badge">8:00 AM – 2:00 PM</div>
-      
-      <div class="location">
-        📍 <strong>190 CENTER ST., MIDDLEBORO</strong><br>
-        <small>(FOLLOW THE SIGNS!)</small>
+    <div class="image-grid">
+      <div class="img-box">
+        <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=400&q=80" alt="Clothing">
+        <span>Clothing & Shoes</span>
       </div>
-
-      <ul class="items-list">
-        <li>CLOTHES</li>
-        <li>TOYS</li>
-        <li>TOOLS</li>
-        <li>SPORTS EQUIPMENT</li>
-        <li>HOUSEHOLD GOODS</li>
-        <li>DECORATIONS</li>
-      </ul>
+      <div class="img-box">
+        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=400&q=80" alt="Furniture">
+        <span>Furniture</span>
+      </div>
+      <div class="img-box">
+        <img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?auto=format&fit=crop&w=400&q=80" alt="Electronics">
+        <span>Electronics</span>
+      </div>
+      <div class="img-box">
+        <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=400&q=80" alt="Home Decor">
+        <span>Decor & Finds</span>
+      </div>
     </div>
 
-    <div class="side-banner">
-      🍋 LEMONADE STAND! 🍋
+    <div class="info-card">
+      <p>Clothing, shoes, furniture, electronics, household goods, decor, toys, and unexpected finds.</p>
+      <div class="highlights">
+        <span class="tag">New Arrivals</span>
+        <span class="tag">Great Deals</span>
+        <span class="tag">Local Shop</span>
+      </div>
     </div>
 
     <div class="footer">
-      SHOP ★ SUPPORT ★ HAVE FUN!
+      📍 VISIT US AT 128 NEWBURY TODAY!
     </div>
   </div>
 
