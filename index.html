@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>128 Newbury - Resale Shop Poster</title>
+<title>128 Newbury - Yard Sale Poster</title>
 <style>
   * {
     box-sizing: border-box;
@@ -11,42 +11,38 @@
     padding: 0;
   }
 
-  html, body {
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    font-family: 'Impact', 'Arial Black', sans-serif;
-    background: #0f172a;
+  body {
+    background-color: #111827;
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 100vh;
+    font-family: 'Impact', 'Arial Black', sans-serif;
+    padding: 20px;
   }
 
-  /* MAIN POSTER CONTAINER */
+  /* POSTER CONTAINER */
   .poster {
-    width: 100vw;
-    height: 100vh;
-    max-width: 500px;
-    max-height: 880px;
-    background: linear-gradient(180deg, #cbe3ff 0%, #edf5ff 35%, #dce7f5 100%);
-    border: 8px solid #1c2b46;
+    width: 460px;
+    height: 720px;
+    background: linear-gradient(180deg, #b9d8fc 0%, #e8f2fe 35%, #d1e2f7 100%);
+    border: 8px solid #1a2332;
     border-radius: 12px;
     position: relative;
     padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
     overflow: hidden;
   }
 
-  /* TOP BUNTING / PENNANTS */
+  /* BUNTING FLAGS AT TOP */
   .bunting {
     display: flex;
     justify-content: space-between;
     height: 18px;
     margin: -10px -10px 0 -10px;
-    overflow: hidden;
   }
 
   .flag {
@@ -54,31 +50,30 @@
     height: 0;
     border-left: 11px solid transparent;
     border-right: 11px solid transparent;
-    border-top: 18px solid #e11d48;
+    border-top: 18px solid #dc2626;
   }
   .flag:nth-child(even) { border-top-color: #2563eb; }
-  .flag:nth-child(3n) { border-top-color: #f59e0b; }
-  .flag:nth-child(5n) { border-top-color: #10b981; }
+  .flag:nth-child(3n) { border-top-color: #eab308; }
+  .flag:nth-child(4n) { border-top-color: #16a34a; }
 
-  /* TOP HEADER */
+  /* HEADER */
   .header {
     text-align: left;
-    padding-left: 10px;
     margin-top: 2px;
     z-index: 2;
   }
 
   .sub-header {
     color: #1e3a8a;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     letter-spacing: 1px;
     text-transform: uppercase;
     text-shadow: 1px 1px 0px #fff;
   }
 
   .title-yard {
-    font-size: 3.8rem;
-    color: #1b365d;
+    font-size: 3.6rem;
+    color: #1e3a8a;
     line-height: 0.85;
     letter-spacing: -1px;
     text-shadow: 3px 3px 0px #fff, -2px -2px 0px #fff, 2px -2px 0px #fff, -2px 2px 0px #fff;
@@ -86,129 +81,127 @@
   }
 
   .title-sale {
-    font-size: 4.6rem;
-    color: #cb2d2d;
+    font-size: 4.5rem;
+    color: #dc2626;
     line-height: 0.85;
     letter-spacing: -1px;
     text-shadow: 4px 4px 0px #7f1d1d, -2px -2px 0px #fff, 2px -2px 0px #fff, -2px 2px 0px #fff;
     text-transform: uppercase;
   }
 
-  /* HUMAN CHARACTER TOP-RIGHT */
-  .character-img {
+  /* HUMAN CHARACTER */
+  .character-container {
     position: absolute;
     top: 25px;
-    right: 10px;
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    border: 4px solid #1b365d;
-    object-fit: cover;
-    box-shadow: 3px 4px 10px rgba(0,0,0,0.3);
+    right: 12px;
     z-index: 2;
+    text-align: center;
+  }
+
+  .character-img {
+    width: 135px;
+    height: 135px;
+    border-radius: 50%;
+    border: 4px solid #1e3a8a;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
   }
 
   .character-badge {
-    position: absolute;
-    top: 145px;
-    right: 15px;
     background: #2563eb;
     color: #ffffff;
     font-size: 0.65rem;
     padding: 3px 8px;
-    border-radius: 12px;
+    border-radius: 10px;
     border: 2px solid #fff;
+    margin-top: -12px;
+    display: inline-block;
+    position: relative;
     z-index: 3;
     letter-spacing: 0.5px;
   }
 
-  /* MIDDLE CONTENT SECTION */
+  /* MIDDLE SECTION LAYOUT */
   .middle-section {
-    position: relative;
     display: flex;
     justify-content: space-between;
-    margin-top: 10px;
+    margin-top: 5px;
     z-index: 2;
   }
 
-  /* MAIN WOODEN BOARD (CENTER/LEFT) */
+  /* MAIN SIGN BOARD */
   .sign-board {
     width: 58%;
     background: #fffdf5;
-    border: 4px solid #6b3a19;
+    border: 4px solid #78350f;
     border-radius: 6px;
     padding: 8px;
-    box-shadow: 3px 4px 8px rgba(0,0,0,0.25);
+    box-shadow: 3px 4px 8px rgba(0,0,0,0.2);
     text-align: center;
   }
 
   .join-us {
-    color: #166534;
-    font-size: 1.2rem;
+    color: #15803d;
+    font-size: 1.1rem;
     letter-spacing: 1px;
   }
 
-  .address-badge {
-    background: #b91c1c;
-    color: #ffffff;
-    font-size: 1.25rem;
-    padding: 3px 4px;
-    border-radius: 4px;
-    margin: 4px 0;
-    line-height: 1.1;
-    letter-spacing: 0.5px;
+  .date-text {
+    color: #b91c1c;
+    font-size: 1.35rem;
+    line-height: 1;
+    margin: 2px 0;
   }
 
-  .time-ribbon {
+  .time-badge {
     background: #1d4ed8;
     color: #ffffff;
-    font-size: 0.8rem;
-    padding: 3px;
+    font-size: 0.72rem;
+    padding: 2px 4px;
     border-radius: 3px;
-    margin-bottom: 4px;
-    letter-spacing: 0.5px;
+    margin: 3px 0;
   }
 
-  .location-text {
+  .location-box {
     font-family: Arial, sans-serif;
     font-weight: 900;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: #1e293b;
-    margin-bottom: 6px;
+    margin-bottom: 5px;
   }
 
-  /* CHECKLIST BOX */
+  /* CHECKLIST */
   .checklist {
     background: #ffffff;
     border: 1px solid #cbd5e1;
     border-radius: 4px;
-    padding: 5px 6px;
+    padding: 4px 6px;
     text-align: left;
     font-family: Arial, sans-serif;
     font-weight: 800;
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     color: #1e293b;
   }
 
   .check-item {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 4px;
     margin-bottom: 2px;
     border-bottom: 1px dashed #e2e8f0;
   }
   .check-item:last-child { border-bottom: none; margin-bottom: 0; }
 
   .checkmark {
-    background: #1d4ed8;
+    background: #2563eb;
     color: #fff;
     border-radius: 50%;
-    width: 13px;
-    height: 13px;
+    width: 12px;
+    height: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 9px;
+    font-size: 8px;
   }
 
   /* RIGHT SIDE COLUMN */
@@ -216,59 +209,57 @@
     width: 38%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 8px;
   }
 
-  /* YELLOW BURST BADGE */
   .burst-badge {
     background: #facc15;
     color: #78350f;
-    border: 3px dashed #ca8a04;
+    border: 2px dashed #ca8a04;
     border-radius: 6px;
     padding: 6px 4px;
     text-align: center;
-    transform: rotate(-3deg);
+    transform: rotate(-2deg);
     box-shadow: 2px 2px 0px rgba(0,0,0,0.15);
   }
 
   .burst-badge h3 {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     line-height: 1.1;
     color: #991b1b;
   }
 
-  /* LEMONADE / COFFEE STAND WOODEN SIGN */
   .stand-card {
     background: #fef3c7;
     border: 3px solid #b45309;
     border-radius: 6px;
     padding: 6px;
     text-align: center;
-    box-shadow: 2px 3px 6px rgba(0,0,0,0.2);
+    box-shadow: 2px 3px 6px rgba(0,0,0,0.15);
   }
 
   .stand-title {
     color: #92400e;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     line-height: 1.1;
   }
 
   .stand-desc {
     font-family: Arial, sans-serif;
-    font-size: 0.65rem;
+    font-size: 0.62rem;
     font-weight: bold;
     color: #b45309;
     margin-top: 3px;
   }
 
-  /* BOTTOM RIBBONS & FOOTER */
+  /* FOOTER BANNERS */
   .ribbon-banner {
     background: #ffffff;
     border: 2px solid #94a3b8;
     border-radius: 20px;
     text-align: center;
-    padding: 4px;
-    font-size: 0.85rem;
+    padding: 3px;
+    font-size: 0.8rem;
     color: #1e293b;
     margin-bottom: 4px;
   }
@@ -277,21 +268,21 @@
     background: #facc15;
     color: #78350f;
     text-align: center;
-    padding: 5px;
+    padding: 4px;
     border-radius: 4px;
-    font-size: 1rem;
+    font-size: 0.95rem;
     letter-spacing: 0.5px;
   }
 
   .footer-strip {
-    background: #1b365d;
+    background: #1e3a8a;
     color: #ffffff;
     text-align: center;
     padding: 6px;
     margin-left: -10px;
     margin-right: -10px;
     margin-bottom: -10px;
-    font-size: 1rem;
+    font-size: 0.95rem;
     letter-spacing: 1px;
   }
 
@@ -303,7 +294,7 @@
 
 <div class="poster">
 
-  <!-- TOP PENNANT FLAGS -->
+  <!-- BUNTING -->
   <div class="bunting">
     <div class="flag"></div><div class="flag"></div><div class="flag"></div>
     <div class="flag"></div><div class="flag"></div><div class="flag"></div>
@@ -314,46 +305,48 @@
     <div class="flag"></div><div class="flag"></div><div class="flag"></div>
   </div>
 
-  <!-- DIFFERENT HUMAN PORTRAIT TOP RIGHT -->
-  <img 
-    class="character-img" 
-    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" 
-    alt="Store Owner"
-  >
-  <div class="character-badge">128 NEWBURY TEAM</div>
-
-  <!-- TOP HEADER -->
-  <div class="header">
-    <div class="sub-header">128 NEWBURY's</div>
-    <div class="title-yard">GOOD FINDS</div>
-    <div class="title-sale">GREAT DEALS!</div>
+  <!-- DIFFERENT HUMAN PORTRAIT -->
+  <div class="character-container">
+    <img 
+      class="character-img" 
+      src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80" 
+      alt="Host Portrait"
+    >
+    <div class="character-badge">MS. NEWBURY</div>
   </div>
 
-  <!-- MIDDLE LAYOUT -->
+  <!-- HEADER TEXT -->
+  <div class="header">
+    <div class="sub-header">WELCOME TO</div>
+    <div class="title-yard">128 NEWBURY</div>
+    <div class="title-sale">YARD SALE!</div>
+  </div>
+
+  <!-- MIDDLE SECTION -->
   <div class="middle-section">
     
-    <!-- MAIN WOODEN SIGN BOARD -->
+    <!-- MAIN SIGN BOARD -->
     <div class="sign-board">
-      <div class="join-us">≡ VISIT US! ≡</div>
-      <div class="address-badge">128 NEWBURY</div>
-      <div class="time-ribbon">NEW SELECTION REGULARLY</div>
+      <div class="join-us">≡ JOIN US! ≡</div>
+      <div class="date-text">OCTOBER<br>17<sup>TH</sup> & 18<sup>TH</sup></div>
+      <div class="time-badge">9:00 AM – 3:00 PM</div>
       
-      <div class="location-text">
-        EVERYDAY LOCAL FINDS<br>
-        <small style="font-weight:normal; font-size:0.68rem;">(STOP BY & DISCOVER)</small>
+      <div class="location-box">
+        📍 128 NEWBURY ST.<br>
+        <small style="font-weight:normal; font-size:0.65rem;">(FOLLOW THE SIGNS!)</small>
       </div>
 
       <div class="checklist">
         <div class="check-item"><span class="checkmark">✓</span> CLOTHES</div>
-        <div class="check-item"><span class="checkmark">✓</span> SHOES</div>
-        <div class="check-item"><span class="checkmark">✓</span> FURNITURE</div>
-        <div class="check-item"><span class="checkmark">✓</span> ELECTRONICS</div>
-        <div class="check-item"><span class="checkmark">✓</span> HOUSEHOLD GOODS</div>
-        <div class="check-item"><span class="checkmark">✓</span> DECOR & TOYS</div>
+        <div class="check-item"><span class="checkmark">✓</span> TOYS</div>
+        <div class="check-item"><span class="checkmark">✓</span> TOOLS</div>
+        <div class="check-item"><span class="checkmark">✓</span> SPORTS GEAR</div>
+        <div class="check-item"><span class="checkmark">✓</span> HOME GOODS</div>
+        <div class="check-item"><span class="checkmark">✓</span> DECORATIONS</div>
       </div>
     </div>
 
-    <!-- RIGHT SIDE EXTRA BADGES -->
+    <!-- RIGHT SIDE BADGES -->
     <div class="right-col">
       
       <div class="burst-badge">
@@ -361,11 +354,11 @@
       </div>
 
       <div class="stand-card">
-        <div class="stand-title">REFRESHMENT STAND! 🍋</div>
+        <div class="stand-title">LEMONADE STAND! 🍋</div>
         <div class="stand-desc">
-          FRESH DRINKS<br>
+          FRESH LEMONADE<br>
           SWEET TREATS<br>
-          LOCAL FUN! <span class="heart">♥</span>
+          FUN FOR ALL! <span class="heart">♥</span>
         </div>
       </div>
 
@@ -373,7 +366,7 @@
 
   </div>
 
-  <!-- BOTTOM RIBBONS & FOOTER -->
+  <!-- FOOTER -->
   <div>
     <div class="ribbon-banner">
       GREAT FINDS • GREAT PRICES • GREAT DAY!
