@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>CHAMPION. — Yard Sale</title>
+<title>CHAMPION. Yard Sale</title>
 
 <style>
 * {
@@ -13,517 +13,225 @@
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
+html, body {
+  width: 100%;
+  min-height: 100%;
   font-family: Arial, Helvetica, sans-serif;
-  background: #f4f0e7;
-  color: #101010;
+  background: #08783e;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+.poster {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  color: white;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0,0,0,.12),
+      rgba(0,70,35,.25)
+    ),
+    url("https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=2000&q=90")
+    center / cover;
 }
 
-/* HEADER */
+/* dark green overlay */
 
-header {
-  height: 90px;
-  background: #f4f0e7;
+.poster::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0,70,35,.72) 0%,
+      rgba(0,100,50,.25) 42%,
+      rgba(0,35,18,.82) 100%
+    );
+}
+
+/* top */
+
+.top {
+  position: relative;
+  z-index: 2;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 0 6%;
-  border-bottom: 2px solid #101010;
+  align-items: center;
+  padding: 28px 6%;
 }
 
 .logo {
-  font-size: 34px;
-  font-weight: 900;
-  letter-spacing: -2px;
-}
-
-.menu {
-  font-size: 16px;
-  font-weight: 800;
-}
-
-/* HERO */
-
-.hero {
-  min-height: 850px;
-  position: relative;
-  overflow: hidden;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(244,240,231,.96) 0%,
-      rgba(244,240,231,.82) 35%,
-      rgba(244,240,231,.12) 75%
-    ),
-    url("https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1800&q=90")
-    center/cover;
-}
-
-.hero-content {
-  padding: 120px 6%;
-  max-width: 850px;
-}
-
-.small-title {
-  font-size: 20px;
-  font-weight: 800;
-  letter-spacing: 4px;
-  margin-bottom: 25px;
-}
-
-.hero h1 {
-  font-size: clamp(75px, 14vw, 180px);
-  line-height: .78;
+  font-size: clamp(30px, 5vw, 58px);
   font-weight: 1000;
-  letter-spacing: -10px;
+  letter-spacing: -3px;
 }
 
-.hero h1 span {
-  display: block;
-}
-
-.green {
-  color: #08783e;
-}
-
-.hero-description {
-  max-width: 550px;
-  margin-top: 45px;
-  font-size: 24px;
-  line-height: 1.3;
-  font-weight: 500;
-}
-
-.hero-button {
-  display: inline-block;
-  margin-top: 35px;
-  background: #08783e;
-  color: white;
-  padding: 19px 30px;
-  border-radius: 4px;
-  font-weight: 900;
-  font-size: 17px;
-}
-
-/* SALE STRIP */
-
-.sale-strip {
-  background: #08783e;
-  color: white;
-  padding: 25px 6%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 25px;
-}
-
-.sale-strip strong {
-  font-size: 25px;
-}
-
-.sale-strip span {
-  font-size: 18px;
-  font-weight: 700;
-}
-
-/* POSTER SECTION */
-
-.poster {
-  padding: 90px 6%;
-  background: #f4f0e7;
-}
-
-.poster-grid {
-  display: grid;
-  grid-template-columns: 1.2fr .8fr;
-  gap: 25px;
-}
-
-.poster-main {
-  min-height: 650px;
-  position: relative;
-  overflow: hidden;
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(0,0,0,.05),
-      rgba(0,0,0,.65)
-    ),
-    url("https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=1500&q=90")
-    center/cover;
-  color: white;
-  padding: 45px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-
-.poster-main h2 {
-  font-size: clamp(65px, 8vw, 120px);
-  line-height: .8;
-  letter-spacing: -7px;
-}
-
-.poster-main p {
-  margin-top: 25px;
-  font-size: 21px;
-  max-width: 500px;
-}
-
-.poster-side {
-  background: #08783e;
-  color: white;
-  padding: 45px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.poster-side .label {
-  font-size: 15px;
-  letter-spacing: 4px;
-  font-weight: 800;
-}
-
-.poster-side h2 {
-  font-size: clamp(55px, 7vw, 95px);
-  line-height: .85;
-  letter-spacing: -5px;
-}
-
-.poster-side .date {
-  font-size: 24px;
-  font-weight: 800;
-  border-top: 2px solid white;
-  padding-top: 25px;
-}
-
-/* ITEMS */
-
-.items {
-  background: #101010;
-  color: white;
-  padding: 100px 6%;
-}
-
-.section-label {
-  color: #72d79c;
-  font-size: 16px;
-  letter-spacing: 4px;
-  font-weight: 800;
-  margin-bottom: 20px;
-}
-
-.items h2 {
-  font-size: clamp(65px, 10vw, 140px);
-  line-height: .8;
-  letter-spacing: -8px;
-  margin-bottom: 70px;
-}
-
-.item-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-}
-
-.item {
-  background: #f4f0e7;
-  color: #101010;
-}
-
-.item-image {
-  height: 400px;
-  overflow: hidden;
-}
-
-.item-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.item-text {
-  padding: 25px;
-}
-
-.item-text h3 {
-  font-size: 37px;
-  letter-spacing: -2px;
-}
-
-.item-text p {
-  margin-top: 10px;
-  font-size: 17px;
-  line-height: 1.4;
-}
-
-/* BIG MESSAGE */
-
-.message {
-  padding: 110px 6%;
-  background: #08783e;
-  color: white;
-}
-
-.message h2 {
-  font-size: clamp(65px, 11vw, 155px);
-  line-height: .78;
-  letter-spacing: -9px;
-  max-width: 1100px;
-}
-
-.message p {
-  font-size: 25px;
-  line-height: 1.35;
-  max-width: 650px;
-  margin-top: 45px;
-}
-
-/* REVIEW */
-
-.review {
-  padding: 110px 6%;
-  background:
-    linear-gradient(
-      rgba(244,240,231,.9),
-      rgba(244,240,231,.9)
-    ),
-    url("https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1800&q=90")
-    center/cover;
-}
-
-.review-mark {
-  font-size: 90px;
-  font-weight: 900;
-  line-height: .5;
-}
-
-.review blockquote {
-  max-width: 1050px;
-  margin-top: 35px;
-  font-size: clamp(38px, 6vw, 75px);
-  line-height: 1;
-  letter-spacing: -4px;
-  font-weight: 800;
-}
-
-.review cite {
-  display: block;
-  margin-top: 35px;
-  font-size: 18px;
-  font-weight: 800;
-}
-
-/* FAQ */
-
-.faq {
-  background: #101010;
-  color: white;
-  padding: 100px 6%;
-}
-
-.faq h2 {
-  font-size: clamp(65px, 10vw, 135px);
-  line-height: .8;
-  letter-spacing: -8px;
-  margin-bottom: 70px;
-}
-
-details {
-  border-top: 1px solid #666;
-  padding: 30px 0;
-}
-
-details:last-child {
-  border-bottom: 1px solid #666;
-}
-
-summary {
-  cursor: pointer;
-  list-style: none;
-  font-size: clamp(27px, 4vw, 45px);
-  font-weight: 700;
-  display: flex;
-  justify-content: space-between;
-}
-
-summary::after {
-  content: "+";
-}
-
-details[open] summary::after {
-  content: "−";
-}
-
-.answer {
-  max-width: 750px;
-  color: #ccc;
-  font-size: 19px;
-  line-height: 1.6;
-  padding-top: 25px;
-}
-
-/* LOCATION */
-
-.location {
-  background: #f4f0e7;
-  padding: 120px 6%;
-  text-align: center;
-}
-
-.location .label {
-  font-size: 17px;
-  letter-spacing: 4px;
-  font-weight: 800;
-}
-
-.location h2 {
-  font-size: clamp(70px, 11vw, 155px);
-  line-height: .75;
-  letter-spacing: -9px;
-  margin: 30px 0 50px;
-}
-
-.address {
-  font-size: clamp(25px, 4vw, 40px);
-  font-weight: 800;
-}
-
-.hours {
-  margin-top: 35px;
-  font-size: 21px;
-  line-height: 1.7;
-}
-
-/* CONTACT */
-
-.contact {
-  padding: 100px 6%;
-  background: #08783e;
-  color: white;
-  text-align: center;
-}
-
-.contact h2 {
-  font-size: clamp(65px, 10vw, 135px);
-  letter-spacing: -8px;
-  line-height: .8;
-}
-
-.contact p {
-  margin: 35px auto;
-  max-width: 600px;
-  font-size: 21px;
-}
-
-.contact-button {
-  display: inline-block;
+.tag {
   background: white;
-  color: #101010;
-  padding: 19px 30px;
+  color: #08783e;
+  padding: 12px 20px;
+  font-size: 15px;
   font-weight: 900;
-  border-radius: 4px;
+  border-radius: 30px;
 }
 
-/* FOOTER */
+/* main poster */
 
-footer {
-  background: #101010;
-  color: white;
-  padding: 35px 6%;
+.content {
+  position: relative;
+  z-index: 2;
+  min-height: calc(100vh - 100px);
+  padding: 4vh 6% 6vh;
   display: flex;
-  justify-content: space-between;
-  font-size: 14px;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* small heading */
+
+.eyebrow {
+  font-size: clamp(15px, 2vw, 24px);
+  font-weight: 900;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+/* giant text */
+
+h1 {
+  font-size: clamp(75px, 15vw, 190px);
+  line-height: .76;
+  letter-spacing: -11px;
+  font-weight: 1000;
+  max-width: 1000px;
+  text-transform: uppercase;
+}
+
+h1 span {
+  display: block;
+}
+
+/* green/white poster badge */
+
+.badge {
+  margin-top: 35px;
+  width: fit-content;
+  background: #fff;
+  color: #08783e;
+  padding: 12px 24px;
+  font-size: clamp(18px, 2.5vw, 30px);
+  font-weight: 1000;
+  transform: rotate(-2deg);
+}
+
+/* description */
+
+.description {
+  max-width: 650px;
+  margin-top: 30px;
+  font-size: clamp(18px, 2.5vw, 29px);
+  line-height: 1.25;
   font-weight: 700;
 }
 
-/* MOBILE */
+/* bottom information */
 
-@media(max-width: 700px) {
+.bottom {
+  position: relative;
+  z-index: 2;
+  margin-top: 35px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  max-width: 1000px;
+  border-top: 2px solid rgba(255,255,255,.8);
+  padding-top: 22px;
+}
 
-  header {
-    height: 75px;
+.info {
+  padding-right: 25px;
+}
+
+.info + .info {
+  border-left: 1px solid rgba(255,255,255,.5);
+  padding-left: 25px;
+}
+
+.info-title {
+  font-size: 13px;
+  letter-spacing: 3px;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.info-text {
+  font-size: clamp(17px, 2vw, 23px);
+  font-weight: 900;
+  line-height: 1.15;
+}
+
+/* mobile */
+
+@media (max-width: 650px) {
+
+  .poster {
+    min-height: 100svh;
+  }
+
+  .top {
+    padding: 22px 5%;
   }
 
   .logo {
-    font-size: 29px;
+    font-size: 31px;
   }
 
-  .hero {
-    min-height: 760px;
+  .tag {
+    font-size: 12px;
+    padding: 10px 14px;
   }
 
-  .hero-content {
-    padding: 100px 6% 60px;
+  .content {
+    padding: 35px 5% 45px;
+    justify-content: center;
   }
 
-  .hero h1 {
-    letter-spacing: -6px;
+  .eyebrow {
+    letter-spacing: 3px;
+    font-size: 14px;
   }
 
-  .hero-description {
-    font-size: 20px;
+  h1 {
+    font-size: clamp(70px, 19vw, 125px);
+    letter-spacing: -7px;
   }
 
-  .sale-strip {
-    display: block;
+  .badge {
+    margin-top: 25px;
+    font-size: 18px;
   }
 
-  .sale-strip span {
-    display: block;
-    margin-top: 8px;
+  .description {
+    font-size: 19px;
+    margin-top: 23px;
   }
 
-  .poster {
-    padding: 55px 5%;
-  }
-
-  .poster-grid {
+  .bottom {
     grid-template-columns: 1fr;
+    gap: 18px;
+    margin-top: 30px;
   }
 
-  .poster-main {
-    min-height: 550px;
-    padding: 30px;
+  .info {
+    padding-right: 0;
   }
 
-  .poster-side {
-    min-height: 450px;
-  }
-
-  .item-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .item-image {
-    height: 430px;
-  }
-
-  .items h2,
-  .faq h2,
-  .location h2,
-  .contact h2 {
-    letter-spacing: -5px;
-  }
-
-  footer {
-    display: block;
-    text-align: center;
-  }
-
-  footer div + div {
-    margin-top: 10px;
+  .info + .info {
+    border-left: 0;
+    border-top: 1px solid rgba(255,255,255,.4);
+    padding-left: 0;
+    padding-top: 18px;
   }
 }
 </style>
@@ -531,347 +239,62 @@ footer {
 
 <body>
 
-<header>
-  <div class="logo">CHAMPION.</div>
+<main class="poster">
 
-  <div class="menu">
-    <a href="#faq">FAQ</a>
+  <div class="top">
+    <div class="logo">CHAMPION.</div>
+    <div class="tag">LOCAL YARD SALE</div>
   </div>
-</header>
 
+  <div class="content">
 
-<section class="hero">
-
-  <div class="hero-content">
-
-    <div class="small-title">
-      LOCAL YARD SALE · FAMILY OWNED
+    <div class="eyebrow">
+      GOOD FINDS · GOOD DEALS
     </div>
 
     <h1>
-      GOOD
-      <span class="green">DEALS.</span>
+      YARD
+      <span>SALE.</span>
     </h1>
 
-    <p class="hero-description">
-      Clothes, random finds, household items,
-      and unexpected treasures — all waiting
-      to be discovered.
+    <div class="badge">
+      CLOTHES · RANDOM ITEMS · MORE
+    </div>
+
+    <p class="description">
+      Come take a look and discover clothes,
+      household items, random finds, and
+      unexpected treasures at great prices.
     </p>
 
-    <a class="hero-button" href="#next">
-      SEE NEXT SALE →
-    </a>
+    <div class="bottom">
 
-  </div>
-
-</section>
-
-
-<section class="sale-strip" id="next">
-
-  <strong>NEXT YARD SALE</strong>
-
-  <span>
-    SATURDAY & SUNDAY · 9:00 AM — 2:00 PM
-  </span>
-
-</section>
-
-
-<section class="poster">
-
-  <div class="poster-grid">
-
-    <div class="poster-main">
-
-      <h2>
-        FIND<br>
-        SOMETHING<br>
-        GREAT.
-      </h2>
-
-      <p>
-        Our inventory changes from sale to sale,
-        so there's always something new to look through.
-      </p>
-
-    </div>
-
-
-    <div class="poster-side">
-
-      <div class="label">
-        COMING SOON
+      <div class="info">
+        <div class="info-title">NEXT SALE</div>
+        <div class="info-text">
+          SATURDAY & SUNDAY
+        </div>
       </div>
 
-      <h2>
-        THE<br>
-        YARD<br>
-        SALE
-      </h2>
+      <div class="info">
+        <div class="info-title">HOURS</div>
+        <div class="info-text">
+          9 AM — 2 PM
+        </div>
+      </div>
 
-      <div class="date">
-        SATURDAY<br>
-        + SUNDAY<br><br>
-        9 AM — 2 PM
+      <div class="info">
+        <div class="info-title">LOCATION</div>
+        <div class="info-text">
+          128 NEWBURY ST
+        </div>
       </div>
 
     </div>
 
   </div>
 
-</section>
-
-
-<section class="items">
-
-  <div class="section-label">
-    WHAT YOU'LL FIND
-  </div>
-
-  <h2>
-    GOOD<br>
-    FINDS.
-  </h2>
-
-
-  <div class="item-grid">
-
-    <div class="item">
-
-      <div class="item-image">
-        <img
-          src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=1000&q=90"
-          alt="Clothing"
-        >
-      </div>
-
-      <div class="item-text">
-        <h3>CLOTHES.</h3>
-        <p>
-          Shirts, pants, jackets, shoes,
-          and more.
-        </p>
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="item-image">
-        <img
-          src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1000&q=90"
-          alt="Home items"
-        >
-      </div>
-
-      <div class="item-text">
-        <h3>HOME.</h3>
-        <p>
-          Household items, décor,
-          and useful finds.
-        </p>
-      </div>
-
-    </div>
-
-
-    <div class="item">
-
-      <div class="item-image">
-        <img
-          src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1000&q=90"
-          alt="Shoes"
-        >
-      </div>
-
-      <div class="item-text">
-        <h3>RANDOM.</h3>
-        <p>
-          You never know what you'll
-          discover at the next sale.
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<section class="message">
-
-  <h2>
-    COME<br>
-    LOOK<br>
-    AROUND.
-  </h2>
-
-  <p>
-    Stop by, take a look, and see what you
-    can find. New items can appear every sale.
-  </p>
-
-</section>
-
-
-<section class="review">
-
-  <div class="review-mark">“</div>
-
-  <blockquote>
-    Always something great to find.
-    Good prices, good people, and
-    a different selection every time.
-  </blockquote>
-
-  <cite>
-    — LOCAL SHOPPER
-  </cite>
-
-</section>
-
-
-<section class="faq" id="faq">
-
-  <h2>QUESTIONS.</h2>
-
-
-  <details open>
-
-    <summary>
-      What kind of items do you sell?
-    </summary>
-
-    <div class="answer">
-      We sell clothes, household items,
-      shoes, random finds, seasonal items,
-      and other things that change from
-      sale to sale.
-    </div>
-
-  </details>
-
-
-  <details>
-
-    <summary>
-      Can I buy items online?
-    </summary>
-
-    <div class="answer">
-      Items are currently available during
-      our scheduled yard sales.
-    </div>
-
-  </details>
-
-
-  <details>
-
-    <summary>
-      Do you offer delivery?
-    </summary>
-
-    <div class="answer">
-      Delivery is not currently offered.
-      Please visit the yard sale in person.
-    </div>
-
-  </details>
-
-
-  <details>
-
-    <summary>
-      How do I know what's available?
-    </summary>
-
-    <div class="answer">
-      Inventory changes frequently, so check
-      the website or Facebook page before
-      coming to the next sale.
-    </div>
-
-  </details>
-
-
-  <details>
-
-    <summary>
-      Are items cleaned before sale?
-    </summary>
-
-    <div class="answer">
-      Items are looked over before being
-      placed out for sale. Condition varies,
-      so please inspect items before buying.
-    </div>
-
-  </details>
-
-</section>
-
-
-<section class="location">
-
-  <div class="label">
-    COME FIND US
-  </div>
-
-  <h2>
-    THE<br>
-    YARD.
-  </h2>
-
-  <div class="address">
-    128 Newbury St
-  </div>
-
-  <div class="hours">
-    NEXT SALE<br>
-    SATURDAY & SUNDAY<br>
-    9:00 AM — 2:00 PM
-  </div>
-
-</section>
-
-
-<section class="contact">
-
-  <h2>
-    GOT<br>
-    QUESTIONS?
-  </h2>
-
-  <p>
-    Message us for information about the
-    next yard sale or what's available.
-  </p>
-
-  <a
-    class="contact-button"
-    href="https://mobile.facebook.com/profile.php?id=100008188600220"
-    target="_blank"
-  >
-    MESSAGE US →
-  </a>
-
-</section>
-
-
-<footer>
-
-  <div>CHAMPION.</div>
-
-  <div>
-    LOCAL YARD SALE · GOOD FINDS · GOOD DEALS
-  </div>
-
-</footer>
+</main>
 
 </body>
 </html>
